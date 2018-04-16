@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminView.master.cs" Inherits="AdminView" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Style.css" rel="stylesheet" />
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   <form id="form1" runat="server">
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ad Monitor</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="AddAdmin.aspx">Add Admin</a></li>
+          <li><a href="ViewAdmin.aspx">View Admin</a></li>
+        </ul>
+      </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Company
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="Company.aspx">Add Company</a></li>
+          <li><a href="ViewCompany.aspx">View Company</a></li>
+        </ul>
+      </li>
+         <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Developer
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="AddDeveloper.aspx">Add Developer</a></li>
+          <li><a href="ViewDeveloper.aspx">View Developer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="container">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
