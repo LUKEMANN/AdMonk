@@ -24,13 +24,14 @@ public partial class LoginAdmin : System.Web.UI.Page
                 if(username.Text == dv.Table.Rows[i]["Name"].ToString() &&
                     password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
+                    Session["did"] = dv.Table.Rows[i]["Id"].ToString();
                     exists = true;
                     break;
                 }
             }
             if (exists)
             {
-               // Session("emailid") = username.Text;
+                
                 Response.Redirect("");
             }
             else

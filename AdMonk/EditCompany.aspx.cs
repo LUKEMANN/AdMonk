@@ -47,7 +47,23 @@ public partial class EditCompany : System.Web.UI.Page
 
     protected void Button2_Click1(object sender, EventArgs e)
     {
-        SqlDataSourceCompany.Delete();
-        Response.Redirect("ViewCompany.aspx");
+        DataView dv = SqlDataSourceCompany.Select(DataSourceSelectArguments.Empty) as DataView;
+
+        if (dv != null)
+        {
+            for (int i = 0; i < dv.Table.Rows.Count; i++)
+                if (password.Text == dv.Table.Rows[i]["password"].ToString())
+                {
+                    SqlDataSourceCompany.Delete();
+                    Response.Redirect("ViewCompany.aspx");
+                }
+                else
+                {
+
+                    msg.Text = "failure";
+                    msg.CssClass = "text-danger";
+                }
+
+        }
     }
 }

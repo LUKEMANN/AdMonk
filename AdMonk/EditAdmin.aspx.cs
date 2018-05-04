@@ -54,7 +54,7 @@ public partial class EditAdmin : System.Web.UI.Page
         if (dv != null)
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
-                if (password.Text == dv.Table.Rows[i]["password"].ToString())
+                if (password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
                     SqlDataSourceAdmin.Delete();
                     msg.Text = "done";

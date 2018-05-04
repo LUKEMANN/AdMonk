@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminView.master" AutoEventWireup="true" CodeFile="EditCompany.aspx.cs" Inherits="EditCompany" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CompanyView.master" AutoEventWireup="true" CodeFile="EditCompany.aspx.cs" Inherits="EditCompany" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -22,8 +22,15 @@
          <div class="form-group">
             <label class="control-label col-sm-4">Emailid</label>
             <div class="col-sm-6">
-        <asp:TextBox ID="emailid" runat="server" CssClass="form-control" AutoPostBack="True"></asp:TextBox>
+        <asp:TextBox ID="emailid" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="emailid" CssClass="red" Display="Dynamic" ErrorMessage="*invalid mail id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </div>
+    </div>
+         <div class="form-group">
+            <label class="control-label col-sm-4">Password</label>
+            <div class="col-sm-6">
+        <asp:TextBox ID="password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="emailid" CssClass="red" Display="Dynamic" ErrorMessage="*invalid password" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
     </div>
          <div class="form-group">
@@ -51,6 +58,13 @@
 
                  </div>
              </div>
+        <div class="form-group">
+             <div class="col-sm-offset-6 col-sm-3">
+
+                 <asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label>
+
+             </div>
+         </div>
     </div>
 </asp:Content>
 

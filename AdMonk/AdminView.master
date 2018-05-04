@@ -30,21 +30,13 @@
         </ul>
       </li>
         <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Company
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="Company.aspx">Add Company</a></li>
-          <li><a href="ViewCompany.aspx">View Company</a></li>
+          <li><a href="AddCategory.aspx">Add Category</a></li>
+          <li><a href="ViewCategory.aspx">View Category</a></li>
         </ul>
-      </li>
-         <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Developer
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="AddDeveloper.aspx">Add Developer</a></li>
-          <li><a href="ViewDeveloper.aspx">View Developer</a></li>
-        </ul>
-      </li>
+      </
     </ul>
   </div>
 </nav>
