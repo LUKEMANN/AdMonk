@@ -19,27 +19,35 @@ public partial class Company : System.Web.UI.Page
 
         if (dv != null)
         {
+            bool exists = false;
             for (int i = 0; i < dv.Table.Rows.Count; i++)
             {
                 if (emailid.Text == dv.Table.Rows[i]["Email"].ToString())
                 {
-                    msg.Text = "Account already exists with this E-mail ID";
-                    msg.CssClass = "text-danger";
+
+                    exists = true;
+                    break;
                 }
-
             }
-               
-                
-                    SqlDataSourceCompany.Insert();
-                    msg.Text = "done";
-                    msg.CssClass = "text-success";
-                
+            if (exists)
+            {
+                msg.Text = "Account already exists with this E-mail ID";
+                msg.CssClass = "text-danger";
             }
-        
-    }
+            else
+            {
+                msg.Text = "";
+                SqlDataSourceCompany.Insert();
+                msg.Text = "done";
+                msg.CssClass = "text-success";
+            }
+        }
 
-    protected void SqlDataSourceCompany_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-    {
+    
 
-    }
+
+
+}
+
+    
 }

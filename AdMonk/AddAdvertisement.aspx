@@ -7,11 +7,11 @@
         <div class="form-group">
           <label class="col-sm-4 control-label" style="height: 20px">AD Photo</label>
             <div class="col-sm-6">
-        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control" />
+        <asp:FileUpload ID="Photo" runat="server" CssClass="form-control" />
             
-            <asp:HiddenField ID="HiddenField1" runat="server" />
+            <asp:HiddenField ID="HiddenFieldPhoto" runat="server" />
             
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="FileUpload1" CssClass="red" Display="Dynamic" ErrorMessage="* Please upload photo"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Photo" CssClass="red" Display="Dynamic" ErrorMessage="* Please upload photo"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="form-group">
@@ -45,7 +45,7 @@
                 <asp:Parameter Name="Advertisement_Id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:ControlParameter ControlID="HiddenField1" Name="Photo" PropertyName="Value" Type="String" />
+                <asp:ControlParameter ControlID="HiddenFieldPhoto" Name="Photo" PropertyName="Value" Type="String" />
                 <asp:ControlParameter ControlID="redirect_link" Name="Redirect_Link" PropertyName="Text" Type="String" />
                 <asp:SessionParameter Name="Company_Id" SessionField="cid" Type="Int32" />
                 <asp:ControlParameter ControlID="DropDownList1" Name="Category_Id" PropertyName="SelectedValue" Type="Decimal" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,8 +15,28 @@ public partial class AddCompany : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SqlDataSource2.Insert();
-        msg.Text = "done";
-        msg.CssClass ="text-success";
+        if (Photo.HasFile)
+        {
+            string FileName = Photo.FileName.ToLower();
+
+            string Extension = FileName.Substring(FileName.LastIndexOf('.'));
+
+            if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
+            {
+                HiddenFieldPhoto.Value = "/photos/" + FileName;
+                Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
+                SqlDataSource2.Insert();
+                msg.Text = "Advertisement added";
+                msg.CssClass = "text-success";
+
+            }
+            else
+            {
+                msg.Text = "Please select an image file";
+                msg.CssClass = "text-danger";
+            }
+
+
+        }
     }
 }

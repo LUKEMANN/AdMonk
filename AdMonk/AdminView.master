@@ -15,7 +15,7 @@
 <body>
    <form id="form1" runat="server">
         <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+  <div class="container-fluid col-sm-6">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Ad Monitor</a>
     </div>
@@ -26,6 +26,7 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="AddAdmin.aspx">Add Admin</a></li>
+            <li><a href="LoginAdmin.aspx">Login</a></li>
           <li><a href="ViewAdmin.aspx">View Admin</a></li>
         </ul>
       </li>
@@ -38,7 +39,38 @@
         </ul>
       </
     </ul>
-  </div>
+      </div>
+ 
+            
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+         <span class="sr-only">Toggle navigaton</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>            
+      </button>  
+      
+
+      <div id="collapsable-nav" class="collapse  navbar-collapse col-sm-6">
+        <ul id="nav-list" class="nav navbar-nav navbar-right">
+        <li class="visible-xs active">
+          <a href="test.htm">
+            <span class="glyphicon glyphicon-home"></span>Home
+          </a>
+        </li>
+        	<li>
+        		<a href="menu-categories.html">
+        			<span class="glyphicon glyphicon-home"></span><br class="hidden-xs">Menu
+        		</a>
+        	</li>
+        	<li>
+        		<a href="#">
+        			<span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs">About
+        		</a>
+        	</li>
+        	      	
+        </ul>
+      	
+      </div>
 </nav>
     <div class="container">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

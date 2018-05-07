@@ -23,11 +23,11 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Your Websites
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Websites
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="AddAdvertisement.aspx">View Websites</a></li>
-          <li><a href="ViewAdvertisement.aspx">Add Websites</a></li>
+          <li><a href="WebsiteKeys.aspx">View Websites</a></li>
+          <li><a href="ViewWebsite.aspx">Add Websites</a></li>
         </ul>
       </li>
        

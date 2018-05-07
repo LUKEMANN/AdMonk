@@ -26,6 +26,7 @@
             <div class="col-sm-6">
         <asp:TextBox ID="confirmpass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="confirmpass" CssClass="red" ErrorMessage="* invalid password"></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field"></asp:RequiredFieldValidator>
                 </div>
     </div>
          <div class="form-group">
@@ -43,6 +44,7 @@
                     <asp:ListItem>Female</asp:ListItem>
                     <asp:ListItem>Other</asp:ListItem>
                 </asp:RadioButtonList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="RadioButtonList1" CssClass="red" Display="Dynamic" ErrorMessage="*Select from given options"></asp:RequiredFieldValidator>
                 </div>
     </div>
          <div class="form-group">
@@ -58,6 +60,7 @@
             <div class="col-sm-6">
         <asp:TextBox ID="emailid" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="emailid" CssClass="red" Display="Dynamic" ErrorMessage="*invalid mail id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="emailid" CssClass="red" Display="Dynamic" ErrorMessage="*email is mandatory"></asp:RequiredFieldValidator>
                 </div>
     </div>
         <div class="form-group">
@@ -67,6 +70,8 @@
                     <asp:ListItem>Admin</asp:ListItem>
                     <asp:ListItem>Poweruser</asp:ListItem>
                 </asp:RadioButtonList>
+                <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="type" CssClass="red" Display="Dynamic" ErrorMessage="*Choose from given options"></asp:RequiredFieldValidator>
                 </div>
     </div>
         <div class="form-group">

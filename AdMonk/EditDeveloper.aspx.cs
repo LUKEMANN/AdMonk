@@ -23,7 +23,7 @@ public partial class EditDeveloper : System.Web.UI.Page
             {
                 for (int i = 0; i < dv.Table.Rows.Count; i++)
                 {
-                    if (Request.QueryString["id"] == dv.Table.Rows[i]["Id"].ToString())
+                    if (Request.QueryString["id"] == dv.Table.Rows[i]["Developer_Id"].ToString())
                     {
                         username.Text = dv.Table.Rows[i]["Name"].ToString();
                         mobile.Text = dv.Table.Rows[i]["Phone"].ToString();
@@ -62,5 +62,10 @@ public partial class EditDeveloper : System.Web.UI.Page
                 }
 
         }
+    }
+
+    protected void mobile_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

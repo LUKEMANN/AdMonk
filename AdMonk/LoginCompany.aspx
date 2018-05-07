@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="control-label col-sm-4">E-Mail</label>
+            <label class="control-label col-sm-4">Company E-Mail</label>
             <div class="col-sm-6">
                 <asp:TextBox ID="email" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field" ControlToValidate="username"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field" ControlToValidate="email"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="form-group">

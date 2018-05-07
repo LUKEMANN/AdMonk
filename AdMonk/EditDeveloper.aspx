@@ -45,16 +45,17 @@
          <div class="form-group">
             <label class="control-label col-sm-4">Contact</label>
             <div class="col-sm-6">
-        <asp:TextBox ID="mobile" runat="server" CssClass="form-control"></asp:TextBox>
+        <asp:TextBox ID="mobile" runat="server" CssClass="form-control" OnTextChanged="mobile_TextChanged"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="mobile" CssClass="red" Display="Dynamic" ErrorMessage="* mandatory field"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="mobile" CssClass="red" Display="Dynamic" ErrorMessage="* invalid contact" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
                 </div>
     </div>
          <div class="form-group">
-            <label class="control-label col-sm-4">Emailid</label>
+            <label class="control-label col-sm-4">Email Id</label>
             <div class="col-sm-6">
-        <asp:TextBox ID="emailid" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="emailid" CssClass="red" Display="Dynamic" ErrorMessage="*invalid mail id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                <asp:textbox runat="server" ID="email" CssClass="form-control"></asp:textbox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="email" CssClass="red" Display="Dynamic" ErrorMessage="*email is mandatory"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="email" CssClass="red" Display="Dynamic" ErrorMessage="invalid email address" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
     </div>
         <div class="form-group">
@@ -64,24 +65,24 @@
 
                  <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" OnClick="Button1_Click" Text="Update" />
                  <asp:Button ID="Button2" runat="server" CssClass="btn btn-danger" OnClick="Button2_Click" Text="Delete" />
-                 <asp:SqlDataSource ID="SqlDataSourceDeveloper" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Developer] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Developer] ([Phone], [Email], [Password], [Gender], [Name]) VALUES (@Phone, @Email, @Password, @Gender, @Name)" SelectCommand="SELECT [Id], [Phone], [Email], [Password], [Gender], [Name] FROM [Developer]" UpdateCommand="UPDATE [Developer] SET [Phone] = @Phone, [Email] = @Email, [Password] = @Password, [Gender] = @Gender, [Name] = @Name WHERE [Id] = @Id">
+                 <asp:SqlDataSource ID="SqlDataSourceDeveloper" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Developer] WHERE [Developer_Id] = @Developer_Id" InsertCommand="INSERT INTO [Developer] ([Name], [Phone], [Email], [Password], [Gender]) VALUES (@Name, @Phone, @Email, @Password, @Gender)" SelectCommand="SELECT * FROM [Developer]" UpdateCommand="UPDATE [Developer] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Password] = @Password, [Gender] = @Gender WHERE [Developer_Id] = @Developer_Id">
                      <DeleteParameters>
-                         <asp:QueryStringParameter Name="Id" QueryStringField="id" Type="Int32" />
+                         <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
                      </DeleteParameters>
                      <InsertParameters>
+                         <asp:Parameter Name="Name" Type="String" />
                          <asp:Parameter Name="Phone" Type="String" />
                          <asp:Parameter Name="Email" Type="String" />
                          <asp:Parameter Name="Password" Type="String" />
                          <asp:Parameter Name="Gender" Type="String" />
-                         <asp:Parameter Name="Name" Type="String" />
                      </InsertParameters>
                      <UpdateParameters>
+                         <asp:ControlParameter ControlID="username" Name="Name" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="mobile" Name="Phone" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="emailid" Name="Email" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="password" Name="Password" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="RadioButtonList1" Name="Gender" PropertyName="SelectedValue" Type="String" />
-                         <asp:ControlParameter ControlID="username" Name="Name" PropertyName="Text" Type="String" />
-                         <asp:QueryStringParameter Name="Id" QueryStringField="id" />
+                         <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
                      </UpdateParameters>
                  </asp:SqlDataSource>
 

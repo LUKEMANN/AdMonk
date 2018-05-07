@@ -21,10 +21,10 @@ public partial class LoginAdmin : System.Web.UI.Page
         {
             for(int i = 0; i < dv.Table.Rows.Count; i++)
             {
-                if(username.Text == dv.Table.Rows[i]["Name"].ToString() &&
+                if(emailid.Text == dv.Table.Rows[i]["Email"].ToString() &&
                     password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
-                    Session["did"] = dv.Table.Rows[i]["Id"].ToString();
+                    Session["did"] = dv.Table.Rows[i]["Developer_Id"].ToString();
                     exists = true;
                     break;
                 }
@@ -32,7 +32,7 @@ public partial class LoginAdmin : System.Web.UI.Page
             if (exists)
             {
                 
-                Response.Redirect("");
+                Response.Redirect("ViewDeveloper.aspx");
             }
             else
             {

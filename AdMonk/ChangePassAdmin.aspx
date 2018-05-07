@@ -8,7 +8,7 @@
             <label class="control-label col-sm-4">Username</label>
             <div class="col-sm-6">
                 <asp:TextBox ID="username" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="username" CssClass="red" Display="Dynamic" ErrorMessage="mandatory field"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="username" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="form-group">
@@ -29,7 +29,8 @@
             <label class="control-label col-sm-4">Confirm Password</label>
             <div class="col-sm-6">
                 <asp:TextBox ID="confirmpass" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="newpass" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="password doesn't match "></asp:CompareValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="newpass" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="*password doesn't match "></asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="*re-enter password"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="form-group">

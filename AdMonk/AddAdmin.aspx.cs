@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Data;
 using System.Web.UI.WebControls;
 
 public partial class AddAdmin : System.Web.UI.Page
@@ -19,9 +20,32 @@ public partial class AddAdmin : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SqlDataSourceAdmin.Insert();
-        msg.Text = "done";
-        msg.CssClass = "text-success";
+        DataView dv = SqlDataSourceAdmin.Select(DataSourceSelectArguments.Empty) as DataView;
+
+        if (dv != null)
+        {
+            bool exists = false;
+            for (int i = 0; i < dv.Table.Rows.Count; i++)
+            {
+                if (username.Text == dv.Table.Rows[i]["Username"].ToString() || emailid.Text==dv.Table.Rows[i]["Emailid"].ToString())
+                {
+                    exists = true;
+                    break;
+                }
+            }
+            if (exists)
+            {
+                msg.Text = "Account already exists with Username or Email-id";
+                msg.CssClass = "text-danger";
+            }
+            else
+            {
+                msg.Text = "";
+                SqlDataSourceAdmin.Insert();
+                msg.Text = "done";
+                msg.CssClass = "text-success";
+            }
+        }
     }
 
 
