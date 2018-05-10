@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <div class="form-horizontal">
+          <div class="page-header text-center">
+     <a href="#"><span class="glyphicon glyphicon-briefcase" style="font-size:75px"></span></a>   
+            <h2>Company Sign Up</h2>
+        </div>
          <div class="form-group">
             <label class="control-label col-sm-4">Company Name</label>
             <div class="col-sm-6">
@@ -22,6 +26,7 @@
             <label class="control-label col-sm-4">Confirm Password</label>
             <div class="col-sm-6">
         <asp:TextBox ID="confirmpass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field"></asp:RequiredFieldValidator>
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="confirmpass" CssClass="red" ErrorMessage="* invalid password"></asp:CompareValidator>
                 </div>
     </div>
@@ -37,12 +42,13 @@
             <label class="control-label col-sm-4">Email Id</label>
             <div class="col-sm-6">
         <asp:TextBox ID="emailid" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="emailid" CssClass="red" Display="Dynamic" ErrorMessage="*email-id is mandatory"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="emailid" CssClass="red" Display="Dynamic" ErrorMessage="*invalid mail id" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </div>
     </div>
         
         <div class="form-group">
-            <div class="col-sm-offset-6 col-sm-3">
+            <div class="text-center">
 
                 <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Add Company" OnClick="Button1_Click" />
 

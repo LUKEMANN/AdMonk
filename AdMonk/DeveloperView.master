@@ -5,39 +5,47 @@
 <html>
 <head runat="server">
     <title></title>
-     <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="Style.css" rel="stylesheet" />
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Ad Monitor</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Websites
+        <div>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Ad Monitor</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Websites
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="WebsiteKeys.aspx">View Websites</a></li>
-          <li><a href="ViewWebsite.aspx">Add Websites</a></li>
-        </ul>
-      </li>
-       
-    </ul>
-  </div>
-</nav>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+                            <ul class="dropdown-menu">
+                                <li><a href="WebsiteKeys.aspx">Add Websites</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hits
+        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="DailyHitsGraphDev.aspx">Daily Hits From Website to Advertisements</a></li>
+                                <li><a href="MonthlyHitsGraphDev.aspx">Monthly Hits From Website to Advertisements</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="EditDeveloper.aspx">Update Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="Logout.aspx">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>

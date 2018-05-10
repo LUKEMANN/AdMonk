@@ -10,9 +10,9 @@ public partial class EditCompany : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["id"] == null)
+        if (Session["cid"] == null)
         {
-            Response.Redirect("ViewCompany.aspx");
+            Response.Redirect("LoginCompany.aspx");
         }
 
         if (!IsPostBack)
@@ -23,7 +23,7 @@ public partial class EditCompany : System.Web.UI.Page
             {
                 for (int i = 0; i < dv.Table.Rows.Count; i++)
                 {
-                    if (Request.QueryString["id"] == dv.Table.Rows[i]["Company_Id"].ToString())
+                    if (Session["cid"].ToString() == dv.Table.Rows[i]["Company_Id"].ToString())
                     {
                         username.Text = dv.Table.Rows[i]["Name"].ToString();
                         mobile.Text = dv.Table.Rows[i]["Contact"].ToString();

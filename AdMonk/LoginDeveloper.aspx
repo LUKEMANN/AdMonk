@@ -4,6 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-horizontal">
+         <div class="page-header text-center">
+       <a href="#"><span class="glyphicon glyphicon-user" style="font-size:75px"></span></a> 
+            <h2>Developer Login</h2>
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-4">Email</label>
             <div class= "col-sm-6">

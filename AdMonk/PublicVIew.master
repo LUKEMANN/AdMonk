@@ -9,44 +9,69 @@
     <link href="Style.css" rel="stylesheet" />
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        
+
         <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Ad Monitor</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Company
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Ad Monitor</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Company
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="LoginCompany.aspx"> Login</a></li>
-          <li><a href="Company.aspx"> Signup</a></li>
-        </ul>
-      </li>
-        <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Developer
+                        <ul class="dropdown-menu">
+                            <li><a href="LoginCompany.aspx">Login</a></li>
+                            <li><a href="Company.aspx">Signup</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Developer
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="LoginDeveloper.aspx">Login</a></li>
-          <li><a href="AddDeveloper.aspx">Signup</a></li>
-        </ul>
-      </li>
-        
-    </ul>
-  </div>
-</nav>
-    <div class="container">
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="LoginDeveloper.aspx">Login</a></li>
+                            <li><a href="AddDeveloper.aspx">Signup</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="panel-footer">
+            <div class="container">
+                <div class="row">
+                    <section id="hours" class="col-sm-4">
+                        <span>----  content head----</span><br>
+
+                        <hr class="visible-xs">
+                    </section>
+                    <section id="address" class="col-sm-4">
+                        <span>Address:</span><br>
+                       content<br>
+                     content
+  <hr class="visible-xs">
+                    </section>
+                    <section id="testimonials" class="col-sm-4">
+                        <p>
+                            content
+                        </p>
+                        <p>"Content"</p>
+                    </section>
+                </div>
+                <div class="text-center">&copy; Copyright AdMonk Corp.</div>
+            </div>
+
+        </footer>
     </form>
 </body>
 </html>

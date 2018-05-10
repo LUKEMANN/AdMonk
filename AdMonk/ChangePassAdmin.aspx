@@ -22,6 +22,7 @@
             <label class="control-label col-sm-4">New Password</label>
             <div class="col-sm-6">
                 <asp:TextBox ID="newpass" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="newpass" CssClass="red" Display="Dynamic" ErrorMessage="*minimum length is 8 characters" ValidationExpression="^[a-zA-Z0-9'@&amp;#.\s]{8,10}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="*enter new password"></asp:RequiredFieldValidator>
             </div>
         </div>

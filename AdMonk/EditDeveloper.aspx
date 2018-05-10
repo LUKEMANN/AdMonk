@@ -65,7 +65,7 @@
 
                  <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" OnClick="Button1_Click" Text="Update" />
                  <asp:Button ID="Button2" runat="server" CssClass="btn btn-danger" OnClick="Button2_Click" Text="Delete" />
-                 <asp:SqlDataSource ID="SqlDataSourceDeveloper" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Developer] WHERE [Developer_Id] = @Developer_Id" InsertCommand="INSERT INTO [Developer] ([Name], [Phone], [Email], [Password], [Gender]) VALUES (@Name, @Phone, @Email, @Password, @Gender)" SelectCommand="SELECT * FROM [Developer]" UpdateCommand="UPDATE [Developer] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Password] = @Password, [Gender] = @Gender WHERE [Developer_Id] = @Developer_Id">
+                 <asp:SqlDataSource ID="SqlDataSourceDeveloper" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Developer] WHERE [Developer_Id] = @Developer_Id" InsertCommand="INSERT INTO [Developer] ([Name], [Phone], [Email], [Password], [Gender], [Fullname]) VALUES (@Name, @Phone, @Email, @Password, @Gender, @Fullname)" SelectCommand="SELECT * FROM [Developer]" UpdateCommand="UPDATE [Developer] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Password] = @Password, [Gender] = @Gender, [Fullname] = @Fullname WHERE [Developer_Id] = @Developer_Id">
                      <DeleteParameters>
                          <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
                      </DeleteParameters>
@@ -75,13 +75,15 @@
                          <asp:Parameter Name="Email" Type="String" />
                          <asp:Parameter Name="Password" Type="String" />
                          <asp:Parameter Name="Gender" Type="String" />
+                         <asp:Parameter Name="Fullname" Type="String" />
                      </InsertParameters>
                      <UpdateParameters>
                          <asp:ControlParameter ControlID="username" Name="Name" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="mobile" Name="Phone" PropertyName="Text" Type="String" />
-                         <asp:ControlParameter ControlID="emailid" Name="Email" PropertyName="Text" Type="String" />
+                         <asp:ControlParameter ControlID="email" Name="Email" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="password" Name="Password" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="RadioButtonList1" Name="Gender" PropertyName="SelectedValue" Type="String" />
+                         <asp:ControlParameter ControlID="fullname" Name="Fullname" PropertyName="Text" Type="String" />
                          <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
                      </UpdateParameters>
                  </asp:SqlDataSource>

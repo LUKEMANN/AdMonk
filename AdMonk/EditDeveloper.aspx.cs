@@ -10,9 +10,9 @@ public partial class EditDeveloper : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["id"] == null)
+        if (Session["did"] == null)
         {
-            Response.Redirect("ViewDeveloper.aspx");
+            Response.Redirect("LoginDeveloper.aspx");
         }
 
         if (!IsPostBack)
@@ -23,7 +23,7 @@ public partial class EditDeveloper : System.Web.UI.Page
             {
                 for (int i = 0; i < dv.Table.Rows.Count; i++)
                 {
-                    if (Request.QueryString["id"] == dv.Table.Rows[i]["Developer_Id"].ToString())
+                    if (Session["did"].ToString() == dv.Table.Rows[i]["Developer_Id"].ToString())
                     {
                         username.Text = dv.Table.Rows[i]["Name"].ToString();
                         mobile.Text = dv.Table.Rows[i]["Phone"].ToString();
