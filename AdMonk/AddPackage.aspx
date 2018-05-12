@@ -8,6 +8,7 @@
             <label class="control-label col-sm-4">Package Name</label>
             <div class="col-sm-6">
                 <asp:TextBox ID="pkgname" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="pkgname" CssClass="red" Display="Dynamic" ErrorMessage="*only alphabets are allowed" ValidationExpression="^[a-zA-Z''-'\s]{1,40}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="pkgname" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field"></asp:RequiredFieldValidator>
             </div>
         </div>
@@ -15,6 +16,7 @@
             <label class="control-label col-sm-4">Number of Hits</label>
             <div class="col-sm-6">
                 <asp:TextBox ID="nohits" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="nohits" CssClass="red" Display="Dynamic" ErrorMessage="*enter valid value" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="nohits" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field"></asp:RequiredFieldValidator>
             </div>
         </div>
@@ -22,7 +24,8 @@
             <label class="control-label col-sm-4">Price</label>
             <div class="col-sm-6">
                 <asp:TextBox ID="price" runat="server" CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="price" CssClass="red" Display="Dynamic" ErrorMessage="please enter a value"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="price" CssClass="red" Display="Dynamic" ErrorMessage="*enter a valid price value" ValidationExpression="^\d+(\.\d\d)?$"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="price" CssClass="red" Display="Dynamic" ErrorMessage="*please enter a value(*prices in INR)"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div class="form-group">
@@ -48,9 +51,29 @@
         </div>
          <div class="form-group">
             <div class="col-sm-offset-4 col-sm-4">
-                <asp:Label ID="msg" runat="server"></asp:Label>
+               
                 </div>
             </div>
+    </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p><asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </asp:Content>
 

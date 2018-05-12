@@ -12,8 +12,10 @@
         <div class="form-group">
             <label class="control-label col-sm-4">Select Advertisement</label>
             <div class="col-sm-6">
-                <asp:DropDownList ID="DropDownListAdvertisement" runat="server" CssClass="form-control" DataSourceID="SqlDataSourceAdvertisement" DataTextField="Redirect_Link" DataValueField="Advertisement_Id">
+                <asp:DropDownList ID="DropDownListAdvertisement" runat="server" CssClass="form-control" DataSourceID="SqlDataSourceAdvertisement" DataTextField="Redirect_Link" DataValueField="Advertisement_Id" AppendDataBoundItems="True">
+                    <asp:ListItem Value="0">--SELECT--</asp:ListItem>
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListAdvertisement" CssClass="red" Display="Dynamic" ErrorMessage="*select an advertisement" InitialValue="0"></asp:RequiredFieldValidator>
                 <asp:SqlDataSource ID="SqlDataSourceAdvertisement" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" SelectCommand="SELECT * FROM [Advertisement] WHERE ([Company_Id] = @Company_Id)">
                     <SelectParameters>
                         <asp:SessionParameter Name="Company_Id" SessionField="cid" Type="Int32" />
@@ -51,9 +53,10 @@
 
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-8">
+            <div class=" col-sm-12">
+                
                 <asp:Label runat="server" ID="msg" CssClass="control-label" text-capitalize="Label"></asp:Label>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_Id" DataSourceID="SqlDataSourcePurchasedPackage">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_Id" DataSourceID="SqlDataSourcePurchasedPackage" CssClass="table table-hover" style="margin-left: 45px; margin-top: 45px">
                     <Columns>
                         <asp:BoundField DataField="Advertisement_Id" HeaderText="Advertisement_Id" SortExpression="Advertisement_Id" />
                         <asp:BoundField DataField="Redirect_Link" HeaderText="Redirect_Link" SortExpression="Redirect_Link" />
@@ -63,6 +66,32 @@
                         <asp:BoundField DataField="Date_Of_Purchase" HeaderText="Date_Of_Purchase" SortExpression="Date_Of_Purchase" />
                     </Columns>
                 </asp:GridView>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+
+                <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load">
+                    <Series>
+                        <asp:Series ChartType="Pie" IsValueShownAsLabel="True" Name="Series1" XValueMember="Type" YValueMembers="Value">
+                        </asp:Series>
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartArea1">
+                        </asp:ChartArea>
+                    </ChartAreas>
+                    <Legends>
+                        <asp:Legend>
+
+                        </asp:Legend>
+                    </Legends>
+                </asp:Chart>
+                <asp:SqlDataSource ID="SqlDataSourceRemaining" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" SelectCommand="SELECT (SELECT ISNULL(SUM(Package.Number_of_Hits), 0) AS Expr1 FROM PurchasedPackages INNER JOIN Package ON PurchasedPackages.Package_Id = Package.Package_Id WHERE (PurchasedPackages.Advertisement_Id = @AdvertisementId)) - (SELECT ISNULL(COUNT(Hit_Id), 0) AS Expr1 FROM Advertisement_Hits WHERE (Advertisement_Id = @AdvertisementId)) AS Remaining, (SELECT ISNULL(COUNT(Hit_Id), 0) AS Expr1 FROM Advertisement_Hits AS Advertisement_Hits_1 WHERE (Advertisement_Id = @AdvertisementId)) AS Used">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="DropDownListAdvertisement" Name="AdvertisementId" PropertyName="SelectedValue" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+
             </div>
         </div>
     </div>

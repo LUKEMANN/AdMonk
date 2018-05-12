@@ -12,7 +12,7 @@ public partial class ChangePassAdmin : System.Web.UI.Page
     {
         if (Session["username"] == null)
         {
-            Response.Redirect("ViewAdmin.aspx");
+            Response.Redirect("LoginAdmin.aspx");
         }
       
 
@@ -53,6 +53,8 @@ public partial class ChangePassAdmin : System.Web.UI.Page
                 msg.Text = "enter valid Username or Password";
                 msg.CssClass = "text-danger";
             }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
         }
     }
 }

@@ -12,6 +12,7 @@
             <label class="control-label col-sm-4">Company Name</label>
             <div class="col-sm-6">
         <asp:TextBox ID="company_name" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="company_name" CssClass="red" Display="Dynamic" ErrorMessage="*only alphabets and numbers allowed " ValidationExpression="^[a-zA-Z0-9''-'&amp;\s]{1,40}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="* field mandatory" ControlToValidate="company_name"></asp:RequiredFieldValidator>
                 </div>
     </div>
@@ -19,6 +20,7 @@
             <label class="control-label col-sm-4">Password</label>
             <div class="col-sm-6">
         <asp:TextBox ID="Password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="Password" CssClass="red" Display="Dynamic" ErrorMessage="*minimum length is 8 characters" ValidationExpression="^[a-zA-Z0-9'@&amp;#.\s]{8,10}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password" CssClass="red" Display="Dynamic" ErrorMessage="*Field Mandatory"></asp:RequiredFieldValidator>
                 </div>
     </div>
@@ -76,10 +78,29 @@
           <div class="form-group">
              <div class="col-sm-offset-6 col-sm-3">
 
-                 <asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label>
-
+                
              </div>
          </div>
          </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p><asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </asp:Content>
 

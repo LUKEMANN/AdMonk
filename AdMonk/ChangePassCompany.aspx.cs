@@ -21,7 +21,7 @@ public partial class ChangePassCompany : System.Web.UI.Page
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
             {
-                if (username.Text == dv.Table.Rows[i]["Name"].ToString() &&
+                if (email.Text == dv.Table.Rows[i]["Email"].ToString() &&
                     oldpass.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
                     Session["cid"] = dv.Table.Rows[i]["Company_Id"].ToString();
@@ -36,9 +36,11 @@ public partial class ChangePassCompany : System.Web.UI.Page
             }
             else
             {
-                msg.Text = "Invalid username or password";
+                msg.Text = "Invalid email-id or password";
                 msg.CssClass = "text-danger";
             }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
         }
 
     }

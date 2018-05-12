@@ -26,7 +26,7 @@ public partial class AddCompany : System.Web.UI.Page
                 HiddenFieldPhoto.Value = "/photos/" + FileName;
                 Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
                 SqlDataSource2.Insert();
-                msg.Text = "Advertisement added";
+                msg.Text = "Advertisement added successfully!";
                 msg.CssClass = "text-success";
 
             }
@@ -36,6 +36,7 @@ public partial class AddCompany : System.Web.UI.Page
                 msg.CssClass = "text-danger";
             }
 
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }
     }

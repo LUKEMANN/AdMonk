@@ -10,6 +10,9 @@ h1{
     color:red;
 }
 
+.row{
+    color:white;
+}
 .panel-footer section {
     margin-bottom: 30px;
     text-align: center;
@@ -48,4 +51,6 @@ h1{
         font-size: .8em;
         line-height: 1.8;
     }
-   
+   .navbar-brand h3{
+       margin-top:5px;
+   }

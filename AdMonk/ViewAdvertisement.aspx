@@ -4,10 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="table responsive">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" DataKeyNames="Advertisement_Id" DataSourceID="SqlDataSource1" style="margin-left: 25px; margin-right: 0px">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" DataKeyNames="Advertisement_Id" DataSourceID="SqlDataSource1" style="margin-left: 40px; margin-right: 0px; margin-top: 45px;" Width="1028px">
             <Columns>
                 <asp:BoundField DataField="Advertisement_Id" HeaderText="Advertisement_Id" ReadOnly="True" SortExpression="Advertisement_Id" />
-                <asp:BoundField DataField="Photo" HeaderText="Photo" SortExpression="Photo" />
+                <asp:ImageField DataImageUrlField="Photo" HeaderText="Image">
+                </asp:ImageField>
                 <asp:BoundField DataField="Redirect_Link" HeaderText="Redirect_Link" SortExpression="Redirect_Link" />
                 <asp:BoundField DataField="Company_Id" HeaderText="Company_Id" SortExpression="Company_Id" />
                 <asp:BoundField DataField="Category_Id" HeaderText="Category_Id" SortExpression="Category_Id" />

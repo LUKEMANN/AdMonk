@@ -24,7 +24,7 @@ public partial class LoginAdmin : System.Web.UI.Page
                 if (username.Text == dv.Table.Rows[i]["Username"].ToString() &&
                     password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
-                    Session["adminid"] = dv.Table.Rows[i]["Username"].ToString();
+                    Session["username"] = dv.Table.Rows[i]["Username"].ToString();
                     exists = true;
                     break;
                 }

@@ -14,11 +14,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Ad Monitor</a>
+                        <a class="navbar-brand">Ad Monitor</a>
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
@@ -38,11 +37,13 @@
                             </ul>
                         </li>
                         <li><a href="EditDeveloper.aspx">Update Profile</a></li>
-                        <li><a href="#">Change Password</a></li>
-                        <li><a href="Logout.aspx">Logout</a></li>
+                        <li><a href="ChangePassDev.aspx">Change Password</a></li>
+                        <li><a href="Logoutdev.aspx">Logout</a></li>
                     </ul>
                 </div>
             </nav>
+        <div class="container">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

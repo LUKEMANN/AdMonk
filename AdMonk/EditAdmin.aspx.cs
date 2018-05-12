@@ -43,11 +43,29 @@ public partial class EditAdmin : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SqlDataSourceAdmin.Update();
-        Response.Redirect("ViewAdmin.aspx");
-    }
+        DataView dv = SqlDataSourceAdmin.Select(DataSourceSelectArguments.Empty) as DataView;
 
-    protected void Button2_Click(object sender, EventArgs e)
+        if (dv != null)
+        {
+            for (int i = 0; i < dv.Table.Rows.Count; i++)
+                if (password.Text == dv.Table.Rows[i]["Password"].ToString())
+                {
+                    SqlDataSourceAdmin.Update();
+                    msg.Text = "done";
+                    Response.Redirect("ViewAdmin.aspx");
+                }
+                else
+                {
+
+                    msg.Text = "incorrect password";
+                    msg.CssClass = "text-danger";
+                }
+        }
+            //SqlDataSourceAdmin.Update();
+            //Response.Redirect("ViewAdmin.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
     {
         DataView dv = SqlDataSourceAdmin.Select(DataSourceSelectArguments.Empty) as DataView;
 
@@ -63,10 +81,12 @@ public partial class EditAdmin : System.Web.UI.Page
                 else
                 {
 
-                    msg.Text = "failure";
+                    msg.Text = "incorret password";
                     msg.CssClass = "text-danger";
                 }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
 
         }
-        }
+    }
     }

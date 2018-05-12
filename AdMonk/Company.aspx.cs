@@ -22,7 +22,7 @@ public partial class Company : System.Web.UI.Page
             bool exists = false;
             for (int i = 0; i < dv.Table.Rows.Count; i++)
             {
-                if (emailid.Text == dv.Table.Rows[i]["Email"].ToString())
+                if (emailid.Text.ToLower() == dv.Table.Rows[i]["Email"].ToString().ToLower()||company_name.Text.ToLower()== dv.Table.Rows[i]["Name"].ToString().ToLower())
                 {
 
                     exists = true;
@@ -31,23 +31,25 @@ public partial class Company : System.Web.UI.Page
             }
             if (exists)
             {
-                msg.Text = "Account already exists with this E-mail ID";
+                msg.Text = "Account already exists with Username or E-mail ID";
                 msg.CssClass = "text-danger";
             }
             else
             {
                 msg.Text = "";
                 SqlDataSourceCompany.Insert();
-                msg.Text = "done";
+                msg.Text = "Account created successfully!";
                 msg.CssClass = "text-success";
             }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
         }
 
-    
 
 
 
-}
+
+    }
 
     
 }

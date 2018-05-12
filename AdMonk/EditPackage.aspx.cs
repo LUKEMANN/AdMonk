@@ -38,6 +38,7 @@ public partial class EditPackage : System.Web.UI.Page
                     msg.Text = "enter a valid package name";
                     msg.CssClass = "text-danger";
                 }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }
     }

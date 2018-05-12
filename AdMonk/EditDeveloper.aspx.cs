@@ -37,8 +37,28 @@ public partial class EditDeveloper : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SqlDataSourceDeveloper.Update();
-        Response.Redirect("ViewDeveloper.aspx");
+        DataView dv = SqlDataSourceDeveloper.Select(DataSourceSelectArguments.Empty) as DataView;
+
+        if (dv != null)
+        {
+            for (int i = 0; i < dv.Table.Rows.Count; i++)
+                if (password.Text == dv.Table.Rows[i]["Password"].ToString())
+                {
+                    SqlDataSourceDeveloper.Update();
+                    msg.Text = "done";
+                    Response.Redirect("ViewDeveloper.aspx");
+                }
+                else
+                {
+
+                    msg.Text = "incorrect password";
+                    msg.CssClass = "text-danger";
+                }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
+        }
+        //SqlDataSourceDeveloper.Update();
+        //Response.Redirect("ViewDeveloper.aspx");
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -57,9 +77,10 @@ public partial class EditDeveloper : System.Web.UI.Page
                 else
                 {
 
-                    msg.Text = "failure";
+                    msg.Text = "incorrect password";
                     msg.CssClass = "text-danger";
                 }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }
     }

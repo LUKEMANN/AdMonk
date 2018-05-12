@@ -23,7 +23,7 @@
             <div class="col-sm-6">
                 <asp:TextBox ID="newpass" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="newpass" CssClass="red" Display="Dynamic" ErrorMessage="*minimum length is 8 characters" ValidationExpression="^[a-zA-Z0-9'@&amp;#.\s]{8,10}$"></asp:RegularExpressionValidator>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="*enter new password"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="*enter new password" ControlToValidate="newpass"></asp:RequiredFieldValidator>
             </div>
         </div>
          <div class="form-group">
@@ -58,10 +58,29 @@
          <div class="form-group">
              <div class="col-sm-offset-4 col-sm-3">
 
-                 <asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label>
 
              </div>
          </div>
+    </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p><asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 </asp:Content>
 

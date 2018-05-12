@@ -41,11 +41,30 @@ public partial class EditCompany : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SqlDataSourceCompany.Update();
-        Response.Redirect("ViewCompany.aspx");
+        DataView dv = SqlDataSourceCompany.Select(DataSourceSelectArguments.Empty) as DataView;
+
+        if (dv != null)
+        {
+            for (int i = 0; i < dv.Table.Rows.Count; i++)
+                if (password.Text == dv.Table.Rows[i]["password"].ToString())
+                {
+                    SqlDataSourceCompany.Update();
+                    Response.Redirect("ViewCompany.aspx");
+                }
+                else
+                {
+
+                    msg.Text = "incorrect password";
+                    msg.CssClass = "text-danger";
+                }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
+        }
+        //SqlDataSourceCompany.Update();
+        //Response.Redirect("ViewCompany.aspx");
     }
 
-    protected void Button2_Click1(object sender, EventArgs e)
+        protected void Button2_Click1(object sender, EventArgs e)
     {
         DataView dv = SqlDataSourceCompany.Select(DataSourceSelectArguments.Empty) as DataView;
 
@@ -60,9 +79,10 @@ public partial class EditCompany : System.Web.UI.Page
                 else
                 {
 
-                    msg.Text = "failure";
+                    msg.Text = "incorrect password";
                     msg.CssClass = "text-danger";
                 }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }
     }

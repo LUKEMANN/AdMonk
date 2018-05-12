@@ -25,8 +25,8 @@ public partial class WebsiteKeys : System.Web.UI.Page
             bool exists = false;
             for (int i = 0; i < dv.Table.Rows.Count; i++)
             {
-                if (url.Text == dv.Table.Rows[i]["Website_Url"].ToString()
-                    || WebsiteName.Text == dv.Table.Rows[i]["Website"].ToString())
+                if (url.Text.ToLower() == dv.Table.Rows[i]["Website_Url"].ToString().ToLower()
+                    || WebsiteName.Text.ToLower() == dv.Table.Rows[i]["Website"].ToString().ToLower())
                 {
                     exists = true;
                     break;
@@ -34,7 +34,7 @@ public partial class WebsiteKeys : System.Web.UI.Page
             }
             if (exists)
             {
-                msg.Text = "Account already exists with this E-mail ID";
+                msg.Text = "key already generated for the website";
                 msg.CssClass = "text-danger";
             }
             else
@@ -43,9 +43,11 @@ public partial class WebsiteKeys : System.Web.UI.Page
                 HiddenFieldKey.Value = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(Session["did"].ToString() + DateTime.Now.ToFileTime().ToString(), "MD5");
                 SqlDataSourceWebsiteKeys.Insert();
                 GridView1.DataBind();
-                msg.Text = "done";
+                msg.Text = "key generated successfully";
                 msg.CssClass = "text-success";
             }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
         }
 
     }
@@ -57,4 +59,6 @@ public partial class WebsiteKeys : System.Web.UI.Page
         GridView1.DataBind();
     }
 
+
+    
 }

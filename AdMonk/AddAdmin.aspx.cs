@@ -27,7 +27,7 @@ public partial class AddAdmin : System.Web.UI.Page
             bool exists = false;
             for (int i = 0; i < dv.Table.Rows.Count; i++)
             {
-                if (username.Text == dv.Table.Rows[i]["Username"].ToString() || emailid.Text==dv.Table.Rows[i]["Emailid"].ToString())
+                if (username.Text.ToLower() == dv.Table.Rows[i]["Username"].ToString().ToLower() || emailid.Text==dv.Table.Rows[i]["Emailid"].ToString())
                 {
                     exists = true;
                     break;
@@ -42,9 +42,11 @@ public partial class AddAdmin : System.Web.UI.Page
             {
                 msg.Text = "";
                 SqlDataSourceAdmin.Insert();
-                msg.Text = "done";
+                msg.Text = "Account created successfully!";
                 msg.CssClass = "text-success";
             }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
         }
     }
 

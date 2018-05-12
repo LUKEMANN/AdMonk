@@ -11,16 +11,20 @@
         <div class="form-group">
             <label class="control-label col-sm-4">Select Package</label>
             <div class="col-sm-6">
-                <asp:DropDownList ID="DropDownListPackage" runat="server" CssClass="form-control" DataSourceID="SqlDataSourcePackage" DataTextField="Package_Name" DataValueField="Package_Id">
+                <asp:DropDownList ID="DropDownListPackage" runat="server" CssClass="form-control" DataSourceID="SqlDataSourcePackage" DataTextField="Package_Name" DataValueField="Package_Id" AppendDataBoundItems="True">
+                    <asp:ListItem>--SELECT--</asp:ListItem>
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" InitialValue="--SELECT--" runat="server" ControlToValidate="DropDownListPackage" CssClass="red" Display="Dynamic" ErrorMessage="*select a package"></asp:RequiredFieldValidator>
                 <asp:SqlDataSource ID="SqlDataSourcePackage" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" SelectCommand="SELECT * FROM [Package]"></asp:SqlDataSource>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-4">Select Advertisement</label>
             <div class="col-sm-6">
-                <asp:DropDownList ID="DropDownListAdvertisement" runat="server" CssClass="form-control" DataSourceID="SqlDataSourceAdvertisement" DataTextField="Redirect_Link" DataValueField="Advertisement_Id">
+                <asp:DropDownList ID="DropDownListAdvertisement" runat="server" CssClass="form-control" DataSourceID="SqlDataSourceAdvertisement" DataTextField="Redirect_Link" DataValueField="Advertisement_Id" AppendDataBoundItems="True">
+                    <asp:ListItem>--SELECT--</asp:ListItem>
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" InitialValue="--SELECT--" runat="server" ControlToValidate="DropDownListAdvertisement" CssClass="red" Display="Dynamic" ErrorMessage="*select advertisement"></asp:RequiredFieldValidator>
                 <asp:SqlDataSource ID="SqlDataSourceAdvertisement" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" SelectCommand="SELECT * FROM [Advertisement] WHERE ([Company_Id] = @Company_Id)">
                     <SelectParameters>
                         <asp:SessionParameter Name="Company_Id" SessionField="cid" Type="Int32" />

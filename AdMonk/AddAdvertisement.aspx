@@ -19,12 +19,16 @@
             <div class="col-sm-6">
                 <asp:TextBox ID="redirect_link" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="redirect_link" CssClass="red" Display="Dynamic" ErrorMessage="*Please provide a redirect link"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="redirect_link" CssClass="red" Display="Dynamic" ErrorMessage="*Enter valid URL" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
             </div>
         </div>
          <div class="form-group">
              <label class="col-sm-4 control-label">Category</label> 
              <div class="col-sm-6">
-                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" DataSourceID="SqlDataSource1" DataTextField="Category_Name" DataValueField="Category_Id"></asp:DropDownList>
+                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" DataSourceID="SqlDataSource1" DataTextField="Category_Name" DataValueField="Category_Id" AppendDataBoundItems="True">
+                     <asp:ListItem>--SELECT--</asp:ListItem>
+                 </asp:DropDownList>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList1" CssClass="red" Display="Dynamic" ErrorMessage="*select valid category for your advertisement" InitialValue="--SELECT--"></asp:RequiredFieldValidator>
                  </div>
          </div>
         <div class="form-group">
@@ -34,7 +38,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">
-                <asp:Label ID="msg" runat="server" CssClass="control-label "></asp:Label>
+               
                 </div>
                 </div>
         </div>
@@ -59,6 +63,24 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p><asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </asp:Content>
 

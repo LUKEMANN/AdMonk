@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-responsive" DataKeyNames="Package_Id" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-responsive" DataKeyNames="Package_Id" DataSourceID="SqlDataSource1" style="margin-left: 34px; margin-top: 27px" Width="990px">
             <Columns>
                 <asp:BoundField DataField="Package_Id" HeaderText="Package_Id" InsertVisible="False" ReadOnly="True" SortExpression="Package_Id" />
                 <asp:BoundField DataField="Package_Name" HeaderText="Package_Name" SortExpression="Package_Name" />

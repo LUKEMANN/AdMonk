@@ -11,6 +11,7 @@
             <label class="control-label col-sm-4">Username</label>
             <div class="col-sm-6">
         <asp:TextBox ID="username" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="username" CssClass="red" Display="Dynamic" ErrorMessage="*only aplhabets and numbers are allowed" ValidationExpression="^[a-zA-Z0-9''-'\s]{1,40}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="* field mandatory" ControlToValidate="username"></asp:RequiredFieldValidator>
                 </div>
     </div>
@@ -26,7 +27,7 @@
             <label class="control-label col-sm-4">Confirm Password</label>
             <div class="col-sm-6">
         <asp:TextBox ID="confirmpass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="confirmpass" CssClass="red" ErrorMessage="* invalid password"></asp:CompareValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Password" ControlToValidate="confirmpass" CssClass="red" ErrorMessage="* invalid password" Display="Dynamic"></asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field"></asp:RequiredFieldValidator>
                 </div>
     </div>
@@ -34,6 +35,7 @@
             <label class="control-label col-sm-4" >Fullname</label>
             <div class="col-sm-6">
         <asp:TextBox ID="fullname" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="fullname" CssClass="red" Display="Dynamic" ErrorMessage="*enter valid name" ValidationExpression="^[a-zA-Z''-'\s]{1,40}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="fullname" CssClass="red" Display="Dynamic" ErrorMessage="* mandatory field"></asp:RequiredFieldValidator>
                 </div>
     </div>
@@ -107,11 +109,31 @@
               <div class="form-group">
              <div class="col-sm-offset-6 col-sm-3">
 
-                 <asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label>
+                
 
              </div>
          </div>
                 </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p><asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
    
         
 </asp:Content>
