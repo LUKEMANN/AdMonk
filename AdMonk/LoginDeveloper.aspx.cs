@@ -17,6 +17,7 @@ public partial class LoginAdmin : System.Web.UI.Page
     { 
          DataView dv=SqlDataSource1.Select(DataSourceSelectArguments.Empty) as DataView;
         bool exists = false;
+        bool blocked = false;
         if (dv != null)
         {
             for(int i = 0; i < dv.Table.Rows.Count; i++)
@@ -26,13 +27,25 @@ public partial class LoginAdmin : System.Web.UI.Page
                 {
                     Session["did"] = dv.Table.Rows[i]["Developer_Id"].ToString();
                     exists = true;
+                    if(dv.Table.Rows[i]["Status"].ToString() == "blocked")
+                    {
+                        blocked = true;
+                    }
                     break;
                 }
             }
             if (exists)
             {
-                
-                Response.Redirect("WebsiteKeys.aspx");
+                if (blocked)
+                {
+                    Session["did"] = null;
+                    msg.Text = "Your account has been blocked by Admin. Please contact via email to resolve this issue.";
+                    msg.CssClass = "text-danger";
+                }
+                else
+                {
+                    Response.Redirect("WebsiteKeys.aspx");
+                }
             }
             else
             {

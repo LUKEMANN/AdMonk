@@ -4,76 +4,177 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="Style.css" rel="stylesheet" />
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <title>Ad Monk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font CSS -->
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- js-->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <!--webfonts-->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <!--//webfonts-->
+    <!--animate-->
+    <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!-- chart -->
+    <script src="js/Chart.js"></script>
+    <!-- //chart -->
+    <!--Calender-->
+    <%--<link rel="stylesheet" href="css/clndr.css" type="text/css" />
+    <script src="js/underscore-min.js" type="text/javascript"></script>
+    <script src="js/moment-2.2.1.js" type="text/javascript"></script>
+    <script src="js/clndr.js" type="text/javascript"></script>
+    <script src="js/site.js" type="text/javascript"></script>--%>
+    <!--End Calender-->
+    <!-- Metis Menu -->
+    <script src="js/metisMenu.min.js"></script>
+    <script src="js/custom.js"></script>
+    <link href="css/custom.css" rel="stylesheet">
+    <!--//Metis Menu -->
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
+<body class="cbp-spmenu-push">
 
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" >
-               Ad Monitor </a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+    <div class="main-content">
+        <!--left-fixed -navigation-->
+        <div class=" sidebar" role="navigation">
+            <div class="navbar-collapse">
+                <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#">Company <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="LoginCompany.aspx">Login</a>
+                                </li>
+                                <li>
+                                    <a href="Company.aspx">Sign Up</a>
+                                </li>
+                            </ul>
+                            <!-- /nav-second-level -->
+                        </li>
+                        <li class="">
+                            <a href="#">Developer<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="LoginDeveloper.aspx">Login</a>
+                                </li>
+                                <li>
+                                    <a href="AddDeveloper.aspx">Sign Up</a>
+                                </li>
+                            </ul>
+                            <!-- /nav-second-level -->
+                        </li>
 
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Company
-        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="LoginCompany.aspx">Login</a></li>
-                            <li><a href="Company.aspx">Signup</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Developer
-        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="LoginDeveloper.aspx">Login</a></li>
-                            <li><a href="AddDeveloper.aspx">Signup</a></li>
-                        </ul>
-                    </li>
+                        <li>
+                            <a href="#">Testimonials<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="WriteTestimonials.aspx">Your Testimonial </a>
+                                </li>
+                                <li>
+                                    <a href="ViewTestimonials.aspx">View Testimonials</a>
+                                </li>
+                            </ul>
+                            <!-- //nav-second-level -->
+                        </li>
 
-                </ul>
+                    </ul>
+                    <!-- //sidebar-collapse -->
+                </nav>
             </div>
-        </nav>
-        <div class="container">
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
         </div>
-        <footer class="panel-footer">
-            <div class="container">
-                <div class="row">
-                    <section id="hours" class="col-sm-4">
-                        <span>----  content head----</span><br>
-
-                        <hr class="visible-xs">
-                    </section>
-                    <section id="address" class="col-sm-4">
-                        <span>Address:</span><br>
-                       content<br>
-                     content
-  <hr class="visible-xs">
-                    </section>
-                    <section id="testimonials" class="col-sm-4">
-                        <p>
-                            content
-                        </p>
-                        <p>"Content"</p>
-                    </section>
+        <!--left-fixed -navigation-->
+        <!-- header-starts -->
+        <div class="sticky-header header-section ">
+            <div class="header-left">
+                <!--toggle button start-->
+                <button id="showLeftPush"><i class="fa fa-bars"></i></button>
+                <!--toggle button end-->
+                <!--logo -->
+                <div class="logo">
+                    <a>
+                        <h1>Ad Monk</h1>
+                        <span>AdminPanel</span>
+                    </a>
                 </div>
-                <div class="text-center">&copy; Copyright AdMonk Corp.</div>
-            </div>
+                <!--//logo-->
+                <!--search-box-->
 
-        </footer>
-    </form>
+                <!--//end-search-box-->
+                <div class="clearfix"></div>
+            </div>
+            <div class="header-right">
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- //header-ends -->
+        <div id="page-wrapper">
+            <div class="main-page">
+                <form id="form1" runat="server">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <!--footer-->
+        <div class="footer">
+            <p>&copy; 2018 Ad Monk. All Rights Reserved | Design by Lukesh Mannan</p>
+        </div>
+        <!--//footer-->
+
+    </div>
+
+    <!-- Classie -->
+    <script src="js/classie.js"></script>
+    <script>
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+            disableOther('showLeftPush');
+        };
+
+
+        function disableOther(button) {
+            if (button !== 'showLeftPush') {
+                classie.toggle(showLeftPush, 'disabled');
+            }
+        }
+    </script>
+    <!--scrolling js-->
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/scripts.js"></script>
+    <!--//scrolling js-->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.js"></script>
+
 </body>
 </html>

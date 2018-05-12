@@ -40,7 +40,7 @@ public partial class API_GetAdvertisements : System.Web.UI.Page
                 //Get 5 random advertisements of the above category
 
                 //SqlCommand adCmd = new SqlCommand("SELECT * FROM [Advertisement] WHERE Category_Id = @Category_Id AND ((SELECT ISNULL(SUM(Package.Number_of_Hits), 0) FROM PurchasedPackages INNER JOIN Package ON PurchasedPackages.Package_Id = Package.Package_Id WHERE PurchasedPackages.Advertisement_Id = Advertisement.Advertisement_Id) - (SELECT ISNULL(COUNT(Hit_Id), 0) FROM Advertisement_Hits WHERE Advertisement_Id = Advertisement.Advertisement_Id)) > 0", conn);
-                SqlCommand adCmd = new SqlCommand("SELECT * FROM [Advertisement] WHERE Category_Id = @Category_Id", conn);
+                SqlCommand adCmd = new SqlCommand("SELECT * FROM [Advertisement] WHERE Category_Id = @Category_Id AND Advertisement.Company_Id IN (SELECT Company_Id FROM Company WHERE Status <> 'blocked')", conn);
                 adCmd.Parameters.AddWithValue("@Category_Id", Category_Id);
 
                 DataTable dtAds = new DataTable();
