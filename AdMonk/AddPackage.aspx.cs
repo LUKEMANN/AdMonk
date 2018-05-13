@@ -37,7 +37,7 @@ public partial class AddPackage : System.Web.UI.Page
             {
                 msg.Text = "";
                 SqlDataSourcePackage.Insert();
-                msg.Text = "Package created successfullt!";
+                msg.Text = "Package created successfully!";
                 msg.CssClass = "text-success";
             }
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);

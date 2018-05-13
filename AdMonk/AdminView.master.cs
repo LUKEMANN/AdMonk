@@ -9,6 +9,9 @@ public partial class AdminView : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["username"] == null)
+        {
+            Response.Redirect("LoginAdmin.aspx");
+        }
     }
 }

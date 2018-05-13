@@ -25,6 +25,7 @@ public partial class LoginAdmin : System.Web.UI.Page
                     password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
                     Session["username"] = dv.Table.Rows[i]["Username"].ToString();
+                    Session["type"] = dv.Table.Rows[i]["Type"].ToString();
                     exists = true;
                     break;
                 }
@@ -32,13 +33,15 @@ public partial class LoginAdmin : System.Web.UI.Page
             if (exists)
             {
 
-                Response.Redirect("AddCategory.aspx");
+                Response.Redirect("AdminHome.aspx");
             }
             else
             {
                 msg.Text = "Invalid username or password";
                 msg.CssClass = "text-danger";
             }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
         }
 
     }

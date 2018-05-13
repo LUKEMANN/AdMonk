@@ -27,6 +27,7 @@ public partial class EditCompany : System.Web.UI.Page
                     {
                         username.Text = dv.Table.Rows[i]["Name"].ToString();
                         mobile.Text = dv.Table.Rows[i]["Contact"].ToString();
+                        emailid.Text = dv.Table.Rows[i]["Email"].ToString();
                         break;
                     }
                 }
@@ -49,7 +50,9 @@ public partial class EditCompany : System.Web.UI.Page
                 if (password.Text == dv.Table.Rows[i]["password"].ToString())
                 {
                     SqlDataSourceCompany.Update();
-                    Response.Redirect("ViewCompany.aspx");
+                    msg.Text = "Profile Updated";
+                    msg.CssClass = "text-success";
+                    // Response.Redirect("ViewCompany.aspx");
                 }
                 else
                 {

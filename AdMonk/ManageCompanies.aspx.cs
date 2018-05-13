@@ -9,7 +9,13 @@ public partial class ManageCompanies : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if(Session["type"] != null)
+        {
+            if(Session["type"].ToString() != "Admin")
+            {
+                Response.Redirect("unauth.aspx");
+            }
+        }
     }
 
     protected void Button1_Command(object sender, CommandEventArgs e)

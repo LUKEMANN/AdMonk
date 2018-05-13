@@ -19,13 +19,14 @@ public partial class AddDeveloper : System.Web.UI.Page
 
         if (dv != null)
         {
+            
             bool exists = false;
             for (int i = 0; i < dv.Table.Rows.Count; i++)
             {
                 if (emailid.Text.ToLower() == dv.Table.Rows[i]["Email"].ToString().ToLower()
-                    || username.Text.ToLower()== dv.Table.Rows[i]["Name"].ToString().ToLower())
+                    || username.Text.ToLower() == dv.Table.Rows[i]["Name"].ToString().ToLower())
                 {
-                    
+
                     exists = true;
                     break;
                 }
@@ -38,9 +39,28 @@ public partial class AddDeveloper : System.Web.UI.Page
             else
             {
                 msg.Text = "";
-                SqlDataSourceDeveloper.Insert();
-                msg.Text = "Account created successfully!";
-                msg.CssClass = "text-success";
+                if (Photo.HasFile)
+                {
+                    string FileName = Photo.FileName.ToLower();
+
+                    string Extension = FileName.Substring(FileName.LastIndexOf('.'));
+
+                    if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
+                    {
+                        HiddenFieldPhoto.Value = "/photos/" + FileName;
+                        Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
+                        SqlDataSourceDeveloper.Insert();
+                        msg.Text = "Account created successfully!";
+                        msg.CssClass = "text-success";
+
+                    }
+                    else
+                    {
+                        msg.Text = "Please select an image file";
+                        msg.CssClass = "text-danger";
+                    }
+                }
+                
             }
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 

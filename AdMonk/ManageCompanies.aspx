@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Company_Id" DataSourceID="SqlDataSourceCompany" AllowPaging="True" OnRowDataBound="GridView1_RowDataBound">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Company_Id" DataSourceID="SqlDataSourceCompany" AllowPaging="True" OnRowDataBound="GridView1_RowDataBound" CssClass="table table-hover">
         <Columns>
             <asp:BoundField DataField="Company_Id" HeaderText="Company_Id" InsertVisible="False" ReadOnly="True" SortExpression="Company_Id" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />

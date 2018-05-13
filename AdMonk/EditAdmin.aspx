@@ -60,6 +60,7 @@
                     <asp:ListItem>Admin</asp:ListItem>
                     <asp:ListItem>Poweruser</asp:ListItem>
                 </asp:RadioButtonList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="type" CssClass="red" Display="Dynamic" ErrorMessage="*select an option"></asp:RequiredFieldValidator>
                 </div>
     </div>
          <div class="form-group">

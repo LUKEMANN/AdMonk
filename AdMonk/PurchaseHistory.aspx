@@ -55,7 +55,6 @@
         <div class="form-group">
             <div class=" col-sm-12">
                 
-                <asp:Label runat="server" ID="msg" CssClass="control-label" text-capitalize="Label"></asp:Label>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_Id" DataSourceID="SqlDataSourcePurchasedPackage" CssClass="table table-hover" style="margin-left: 45px; margin-top: 45px">
                     <Columns>
                         <asp:BoundField DataField="Advertisement_Id" HeaderText="Advertisement_Id" SortExpression="Advertisement_Id" />
@@ -65,9 +64,13 @@
                         <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
                         <asp:BoundField DataField="Date_Of_Purchase" HeaderText="Date_Of_Purchase" SortExpression="Date_Of_Purchase" />
                     </Columns>
+                    <EmptyDataTemplate>
+                        No data found.
+                    </EmptyDataTemplate>
                 </asp:GridView>
             </div>
         </div>
+        <div class="text-center"
         <div class="form-group">
             <div class="col-sm-12">
 
@@ -91,8 +94,28 @@
                         <asp:ControlParameter ControlID="DropDownListAdvertisement" Name="AdvertisementId" PropertyName="SelectedValue" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-
+                </div>
             </div>
+        </div>
+    </div>
+     <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Label ID="msg" runat="server" CssClass="control-label"></asp:Label></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
     </div>
 </asp:Content>

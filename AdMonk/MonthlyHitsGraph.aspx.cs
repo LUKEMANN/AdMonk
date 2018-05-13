@@ -11,4 +11,19 @@ public partial class MonthlyHitsGraph : System.Web.UI.Page
     {
 
     }
+    protected void FromDate_DayRender(object sender, DayRenderEventArgs e)
+    {
+        if (e.Day.Date > DateTime.Now)
+        {
+            e.Cell.Visible = false;
+        }
+    }
+
+    protected void ToDate_DayRender(object sender, DayRenderEventArgs e)
+    {
+        if (e.Day.Date > DateTime.Now)
+        {
+            e.Cell.Visible = false;
+        }
+    }
 }

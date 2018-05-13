@@ -26,8 +26,12 @@ public partial class EditDeveloper : System.Web.UI.Page
                     if (Session["did"].ToString() == dv.Table.Rows[i]["Developer_Id"].ToString())
                     {
                         username.Text = dv.Table.Rows[i]["Name"].ToString();
+                        fullname.Text = dv.Table.Rows[i]["Fullname"].ToString();
                         mobile.Text = dv.Table.Rows[i]["Phone"].ToString();
                         RadioButtonList1.SelectedValue = dv.Table.Rows[i]["Gender"].ToString();
+                        email.Text = dv.Table.Rows[i]["Email"].ToString();
+                        Image1.ImageUrl = dv.Table.Rows[i]["Photo"].ToString();
+                        HiddenFieldPhoto.Value = dv.Table.Rows[i]["Photo"].ToString();
                         break;
                     }
                 }
@@ -44,9 +48,33 @@ public partial class EditDeveloper : System.Web.UI.Page
             for (int i = 0; i < dv.Table.Rows.Count; i++)
                 if (password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
-                    SqlDataSourceDeveloper.Update();
-                    msg.Text = "done";
-                    Response.Redirect("ViewDeveloper.aspx");
+                    if (Photo.HasFile)
+                    {
+                        string FileName = Photo.FileName.ToLower();
+
+                        string Extension = FileName.Substring(FileName.LastIndexOf('.'));
+
+                        if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
+                        {
+                            HiddenFieldPhoto.Value = "/photos/" + FileName;
+                            Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
+                            SqlDataSourceDeveloper.Update();
+                            msg.Text = "Profile Updated";
+                            msg.CssClass = "text-success";
+                        }
+                        else
+                        {
+                            msg.Text = "Select an image file.";
+                            msg.CssClass = "text-danger";
+                        }
+                    }
+                    else
+                    {
+                        SqlDataSourceDeveloper.Update();
+                        msg.Text = "Profile Updated";
+                        msg.CssClass = "text-success";
+                    }
+                    //Response.Redirect("ViewDeveloper.aspx");
                 }
                 else
                 {

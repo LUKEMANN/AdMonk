@@ -45,7 +45,7 @@
                     <InsertParameters>
                         <asp:ControlParameter ControlID="name" Name="Name" PropertyName="Text" Type="String" />
                         <asp:ControlParameter ControlID="email" Name="Email_ID" PropertyName="Text" Type="String" />
-                        <asp:ControlParameter ControlID="email" Name="Title" PropertyName="Text" Type="String" />
+                        <asp:ControlParameter ControlID="title" Name="Title" PropertyName="Text" Type="String" />
                         <asp:ControlParameter ControlID="description" Name="Description" PropertyName="Text" Type="String" />
                     </InsertParameters>
                     <UpdateParameters>

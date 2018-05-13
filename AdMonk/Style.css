@@ -9,8 +9,11 @@ h1{
 .red{
     color:red;
 }
+.circle{
+    border-radius:50%;
+}
 
-.row{
+/*.row{
     color:white;
 }
 .panel-footer section {
@@ -53,4 +56,4 @@ h1{
     }
    .navbar-brand h3{
        margin-top:5px;
-   }
+   }*/
