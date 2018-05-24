@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-horizontal">
+          <div class="page-header text-center">
+            <h2>Add Category</h2>
+        </div>
     <div class="form-group">
         <label class="col-sm-4 control-label">Category Name</label>
         <div class="col-sm-6">

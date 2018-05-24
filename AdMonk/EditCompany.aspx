@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-horizontal">
+        <div class="page-header text-center">
+            <h2>Edit Company Profile</h2>
+        </div>
          <div class="form-group">
             <label class="control-label col-sm-4">Company Name</label>
             <div class="col-sm-6">
@@ -40,20 +43,21 @@
                  <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Update" OnClick="Button1_Click" />
                  <asp:Button ID="Button2" runat="server" CssClass="btn btn-danger" Text="Delete" OnClick="Button2_Click1" />
 
-                 <asp:SqlDataSource ID="SqlDataSourceCompany" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Company] WHERE [Company_Id] = @Company_Id" InsertCommand="INSERT INTO [Company] ([Name], [Email], [Contact]) VALUES (@Name, @Email, @Contact)" SelectCommand="SELECT [Company_Id], [Name], [Email], [Contact] FROM [Company]" UpdateCommand="UPDATE [Company] SET [Name] = @Name, [Email] = @Email, [Contact] = @Contact WHERE [Company_Id] = @Company_Id">
+                 <asp:SqlDataSource ID="SqlDataSourceCompany" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Company] WHERE [Company_Id] = @Company_Id" InsertCommand="INSERT INTO [Company] ([Name], [Email], [Contact], [Password]) VALUES (@Name, @Email, @Contact, @Password)" SelectCommand="SELECT [Company_Id], [Name], [Email], [Contact], [Password] FROM [Company]" UpdateCommand="UPDATE [Company] SET [Name] = @Name, [Email] = @Email, [Contact] = @Contact WHERE [Company_Id] = @Company_Id">
                      <DeleteParameters>
-                         <asp:QueryStringParameter Name="Company_Id" QueryStringField="id" Type="Int32" />
+                         <asp:SessionParameter Name="Company_Id" SessionField="cid" Type="Int32" />
                      </DeleteParameters>
                      <InsertParameters>
                          <asp:Parameter Name="Name" Type="String" />
                          <asp:Parameter Name="Email" Type="String" />
                          <asp:Parameter Name="Contact" Type="String" />
+                         <asp:Parameter Name="Password" Type="String" />
                      </InsertParameters>
                      <UpdateParameters>
                          <asp:ControlParameter ControlID="username" Name="Name" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="emailid" Name="Email" PropertyName="Text" Type="String" />
                          <asp:ControlParameter ControlID="mobile" Name="Contact" PropertyName="Text" Type="String" />
-                         <asp:QueryStringParameter Name="Company_Id" QueryStringField="id" Type="Int32" />
+                         <asp:SessionParameter Name="Company_Id" SessionField="cid" Type="Int32" />
                      </UpdateParameters>
                  </asp:SqlDataSource>
 

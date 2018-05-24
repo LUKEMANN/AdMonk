@@ -28,6 +28,7 @@ public partial class EditAdmin : System.Web.UI.Page
                         username.Text = dv.Table.Rows[i]["Username"].ToString();
                         fullname.Text = dv.Table.Rows[i]["Fullname"].ToString();
                         mobile.Text = dv.Table.Rows[i]["Contactno"].ToString();
+                        emailid.Text = dv.Table.Rows[i]["Emailid"].ToString();
                         RadioButtonList1.SelectedValue = dv.Table.Rows[i]["Gender"].ToString();
                         break;
                     }
@@ -60,10 +61,12 @@ public partial class EditAdmin : System.Web.UI.Page
                     msg.Text = "incorrect password";
                     msg.CssClass = "text-danger";
                 }
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
         }
-            //SqlDataSourceAdmin.Update();
-            //Response.Redirect("ViewAdmin.aspx");
-        }
+        //SqlDataSourceAdmin.Update();
+        //Response.Redirect("ViewAdmin.aspx");
+    }
 
         protected void Button2_Click(object sender, EventArgs e)
     {

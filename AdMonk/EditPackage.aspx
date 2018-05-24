@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <div class="form-horizontal">
+         <div class="page-header text-center">
+            <h2>Edit Package</h2>
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-4">Package Name</label>
             <div class="col-sm-6">
@@ -40,7 +43,7 @@
                
                 <asp:SqlDataSource ID="SqlDataSourcePackage" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Package] WHERE [Package_Id] = @Package_Id" InsertCommand="INSERT INTO [Package] ([Package_Name], [Number_of_Hits], [Price]) VALUES (@Package_Name, @Number_of_Hits, @Price)" SelectCommand="SELECT * FROM [Package]" UpdateCommand="UPDATE [Package] SET [Package_Name] = @Package_Name, [Number_of_Hits] = @Number_of_Hits, [Price] = @Price WHERE [Package_Id] = @Package_Id">
                     <DeleteParameters>
-                        <asp:Parameter Name="Package_Id" Type="Int32" />
+                        <asp:QueryStringParameter Name="Package_Id" QueryStringField="id" Type="Int32" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:ControlParameter ControlID="pkgname" Name="Package_Name" PropertyName="Text" Type="String" />

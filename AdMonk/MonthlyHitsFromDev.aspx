@@ -9,7 +9,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h2 class="text-center">Monthly Hits From Website to Advertisements</h2>
+    <div class="page-header">
+    <h2 class="text-center">Monthly Hits From Website to Advertisements</h2></div>
     <div class="form-horizontal">
 
         <br />
@@ -75,9 +76,9 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <br />
-        <div class="container">
-            <div class="auto-style1">
-                <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceHits">
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceHits" Width="950px">
                     <Series>
                         <asp:Series Name="Series1" XValueMember="Website" YValueMembers="Hits">
                         </asp:Series>

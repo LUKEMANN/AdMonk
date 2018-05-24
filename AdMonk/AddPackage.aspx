@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-horizontal">
+          <div class="page-header text-center">
+            <h2>Add Package</h2>
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-4">Package Name</label>
             <div class="col-sm-6">

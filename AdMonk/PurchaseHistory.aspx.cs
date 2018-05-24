@@ -15,7 +15,7 @@ public partial class PurchaseHistory : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        DataView dv = SqlDataSourcePurchasedPackage.Select(DataSourceSelectArguments.Empty) as DataView;
+        DataView dv = SqlDataSourceRemaining.Select(DataSourceSelectArguments.Empty) as DataView;
 
         if (dv.Table.Rows.Count > 0)
         {

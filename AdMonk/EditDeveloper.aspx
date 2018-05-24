@@ -1,13 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DeveloperView.master" AutoEventWireup="true" CodeFile="EditDeveloper.aspx.cs" Inherits="EditDeveloper" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            margin-top: 10px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="form-horizontal">
+        <div class="page-header text-center">
+            <h2>Edit Profile</h2>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-5">
                 <asp:Image ID="Image1" runat="server" CssClass="img-circle img-responsive" Height="90px" Width="90px"></asp:Image>
-                <asp:FileUpload ID="Photo" runat="server" />
+                <asp:FileUpload ID="Photo" runat="server" CssClass="auto-style1" />
                 <asp:HiddenField ID="HiddenFieldPhoto" runat="server" />
             </div>
 

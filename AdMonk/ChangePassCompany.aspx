@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
    
     <div class="form-horizontal">
+          <div class="page-header text-center">
+            <h2>Change Password</h2>
+        </div>
          <div class="container" style="margin-top:20px">
           <div class="form-group">
             <label class="control-label col-sm-4">E-Mail</label>

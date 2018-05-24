@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h2 class="text-center">Monthly Hits From Website to Advertisements</h2>
+    <div class="page-header">
+    <h2 class="text-center">Monthly Hits From Website to Advertisements</h2></div>
     <div class="form-horizontal">
         <%--<div class="form-group">
             <label class="col-sm-4 control-label">From : </label>
@@ -65,11 +66,11 @@
                 <asp:SessionParameter Name="Developer_Id" SessionField="did" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <div class="container">
-            <div class="text-center">
-                <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceHits" CssClass="form-control">
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceHits" Width="950px">
                     <Series>
-                        <asp:Series Name="Series1" XValueMember="Redirect_Link" YValueMembers="Hits">
+                        <asp:Series Name="Series1" XValueMember="Redirect_Link" YValueMembers="Hits" XValueType="String" XAxisType="Primary">
                         </asp:Series>
                     </Series>
                     <ChartAreas>

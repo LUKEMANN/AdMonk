@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h2 class="text-center">Monthly Hits on Advertisement</h2>
+    <div class="page-header">
+    <h2 class="text-center">Monthly Hits on Advertisement</h2></div>
     <div class="form-horizontal">
         <%--<div class="form-group">
             <label class="col-sm-4 control-label">From : </label>
@@ -66,17 +67,21 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <br />
-        <div class="container">
-            <div class="text-center">
-                <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceMonthsHits" CssClass="auto-style1">
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceMonthsHits" Width="950px" CssClass="auto-style1">
                     <Series>
-                        <asp:Series Name="Series1" XValueMember="Date_Of_Hit" YValueMembers="Hits">
+                        <asp:Series Name="Number of Hits" XValueMember="Date_Of_Hit" YValueMembers="Hits" Legend="Legend1">
                         </asp:Series>
                     </Series>
                     <ChartAreas>
                         <asp:ChartArea Name="ChartArea1">
                         </asp:ChartArea>
                     </ChartAreas>
+                    <Legends>
+                        <asp:Legend Name="Legend1">
+                        </asp:Legend>
+                    </Legends>
                 </asp:Chart>
             </div>
         </div>

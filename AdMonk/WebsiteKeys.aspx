@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="form-horizontal">
+          <div class="page-header text-center">
+            <h2>Add Advertisement</h2>
+        </div>
         <div class="form-group">
             <label class="control-label col-sm-4">Website Name</label>
             <div class="col-sm-6">
@@ -16,6 +19,7 @@
             <div class="col-sm-6">
                 <asp:TextBox ID="url" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="url" CssClass="red" Display="Dynamic" ErrorMessage="*enter a valid url "></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="url" CssClass="red" Display="Dynamic" ErrorMessage="*invalid url" ValidationExpression="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&amp;'\(\)\*\+,;=.]+$"></asp:RegularExpressionValidator>
             </div>
         </div>
         <div class="form-group">
@@ -32,7 +36,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-4 col-sm-6">
-                <asp:Button ID="ButtonAdd" Text="Add Website Key" runat="server" OnClick="ButtonAdd_Click" CssClass="btn btn-primary" />
+                <asp:Button ID="ButtonAdd" Text="Generate Website Key" runat="server" OnClick="ButtonAdd_Click" CssClass="btn btn-primary" />
             </div>
         </div>
         <div class="form-group">
@@ -43,7 +47,7 @@
 
     </div>
     <div class="table-responsive">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Key_Id" DataSourceID="SqlDataSourceWebsiteKeys" CssClass="table table-hover" Style="margin-left: 49px; margin-right: 0px; margin-top: 46px;">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Key_Id" DataSourceID="SqlDataSourceWebsiteKeys" CssClass="table table-hover" Style="margin-left: 49px; margin-right: 0px; margin-top: 46px;" Width="779px">
             <Columns>
                 <asp:BoundField DataField="Key_Id" HeaderText="Key_Id" ReadOnly="True" SortExpression="Key_Id" />
                 <asp:BoundField DataField="Key" HeaderText="Key" SortExpression="Key" />

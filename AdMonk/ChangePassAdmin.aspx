@@ -4,6 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-horizontal">
+          <div class="page-header text-center">
+            <h2>Change Password</h2>
+        </div>
           <div class="form-group">
             <label class="control-label col-sm-4">Username</label>
             <div class="col-sm-6">
@@ -14,14 +17,14 @@
         <div class="form-group">
             <label class="control-label col-sm-4">Old Password</label>
             <div class="col-sm-6">
-                <asp:TextBox ID="oldpass" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="oldpass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="oldpass" CssClass="red" Display="Dynamic" ErrorMessage="*mandatory field"></asp:RequiredFieldValidator>
             </div>
         </div>
          <div class="form-group">
             <label class="control-label col-sm-4">New Password</label>
             <div class="col-sm-6">
-                <asp:TextBox ID="newpass" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="newpass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="newpass" CssClass="red" Display="Dynamic" ErrorMessage="*minimum length is 8 characters" ValidationExpression="^[a-zA-Z0-9'@&amp;#.\s]{8,10}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" CssClass="red" Display="Dynamic" ErrorMessage="*enter new password" ControlToValidate="newpass"></asp:RequiredFieldValidator>
             </div>
@@ -29,7 +32,7 @@
          <div class="form-group">
             <label class="control-label col-sm-4">Confirm Password</label>
             <div class="col-sm-6">
-                <asp:TextBox ID="confirmpass" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="confirmpass" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="newpass" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="*password doesn't match "></asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="confirmpass" CssClass="red" Display="Dynamic" ErrorMessage="*re-enter password"></asp:RequiredFieldValidator>
             </div>

@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <h2 class="text-center">Daily Hits From Website to Advertisements</h2>
+    <div class="page-header">
+    <h2 class="text-center">Daily Hits From Website to Advertisements</h2></div>
     <div class="form-horizontal">
         <div class="form-group">
     <label class="col-sm-4 control-label">Select Advertisement:</label>
@@ -26,9 +27,9 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <br />
-        <div class="container">    
-            <div class="text-center">
-    <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceHits" CssClass="auto-style1" style="margin-top: 24px">
+        <div class="container-fluid">    
+            <div class="col-sm-12">
+    <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceHits" CssClass="auto-style1" Width="950px" style="margin-top: 24px">
         <Series>
             <asp:Series Name="Series1" XValueMember="Website" YValueMembers="Hits">
             </asp:Series>
@@ -40,6 +41,7 @@
     </asp:Chart>
                 </div>
             </div>
+        </div>
     <asp:SqlDataSource ID="SqlDataSourceHits" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" SelectCommand="SELECT Website_Keys.Website, ISNULL(COUNT(Advertisement_Hits.Hit_Id), 0) AS Hits FROM Advertisement_Hits INNER JOIN Website_Keys ON Advertisement_Hits.Key_Id = Website_Keys.Key_Id WHERE (Advertisement_Hits.Advertisement_Id = @Advertisement_Id) AND (CONVERT (date, Advertisement_Hits.Date_Of_Hit) = @Date_Of_Hit) GROUP BY Website_Keys.Website">
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownListWebsite" Name="Advertisement_Id" PropertyName="SelectedValue" Type="Int32" />

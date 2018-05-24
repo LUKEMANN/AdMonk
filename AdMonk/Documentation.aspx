@@ -15,7 +15,7 @@
          <pre>&lt;script src=&quot;js/jquery-*.js&quot;&gt;&lt;/script&gt;<br />
 &lt;script src=&quot;js/script.js&quot;&gt;&lt;/script&gt;<br />
 &lt;script&gt;<br />
-getAds(&quot;yourApiKey&quot;);<br />
+getAds(&quot;your ApiKey&quot;);<br />
 &lt;/script&gt;<br />
         </pre>
         <li>Add the following div where you want to display your ads.<br />

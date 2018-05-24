@@ -63,6 +63,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a class="active"><i class="fa fa-home nav_icon"></i>Dashboard</a>
                         </li>
+                         <li>
+                            <a href="Documentation.aspx">Documentation </a>
+                             </li>
                         <li>
                             <a href="#">Company <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
@@ -92,7 +95,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <a href="#">Testimonials<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="WriteTestimonials.aspx">Your Testimonial </a>
+                                    <a href="WriteTestimonials.aspx">Write Testimonial </a>
                                 </li>
                                 <li>
                                     <a href="ViewTestimonials.aspx">View Testimonials</a>

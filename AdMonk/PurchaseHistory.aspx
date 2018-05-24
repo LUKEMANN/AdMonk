@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CompanyView.master" AutoEventWireup="true" CodeFile="PurchaseHistory.aspx.cs" Inherits="PurchaseHistory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            left: 0px;
+            top: 0px;
+            width: 850px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="form-horizontal">
@@ -53,9 +60,9 @@
 
         </div>
         <div class="form-group">
-            <div class=" col-sm-12">
+            <div class="auto-style1">
                 
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_Id" DataSourceID="SqlDataSourcePurchasedPackage" CssClass="table table-hover" style="margin-left: 45px; margin-top: 45px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_Id" DataSourceID="SqlDataSourcePurchasedPackage" CssClass="table table-hover" style="margin-left: 45px; margin-top: 45px" Width="760px">
                     <Columns>
                         <asp:BoundField DataField="Advertisement_Id" HeaderText="Advertisement_Id" SortExpression="Advertisement_Id" />
                         <asp:BoundField DataField="Redirect_Link" HeaderText="Redirect_Link" SortExpression="Redirect_Link" />
@@ -70,13 +77,14 @@
                 </asp:GridView>
             </div>
         </div>
-        <div class="text-center"
+        <div class="text-center">
         <div class="form-group">
             <div class="col-sm-12">
 
-                <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load">
+                <asp:Chart ID="Chart1" runat="server">
                     <Series>
                         <asp:Series ChartType="Pie" IsValueShownAsLabel="True" Name="Series1" XValueMember="Type" YValueMembers="Value">
+                            
                         </asp:Series>
                     </Series>
                     <ChartAreas>
@@ -96,6 +104,7 @@
                 </asp:SqlDataSource>
                 </div>
             </div>
+            
         </div>
     </div>
      <div id="myModal" class="modal fade" role="dialog">
