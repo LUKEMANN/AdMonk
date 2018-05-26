@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="form-horizontal">
           <div class="page-header text-center">
-            <h2>Add Advertisement</h2>
+            <h2>Add Website</h2>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-4">Website Name</label>

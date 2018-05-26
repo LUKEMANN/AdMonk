@@ -37,29 +37,38 @@ public partial class EditCompany : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-       
+
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
         DataView dv = SqlDataSourceCompany.Select(DataSourceSelectArguments.Empty) as DataView;
 
+        bool Exists = false;
+
         if (dv != null)
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
-                if (password.Text == dv.Table.Rows[i]["Password"].ToString())
+            {
+                if (Session["cid"].ToString() == dv.Table.Rows[i]["Company_Id"].ToString() &&
+                    password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
-                    SqlDataSourceCompany.Update();
-                    msg.Text = "Profile Updated";
-                    msg.CssClass = "text-success";
-                    // Response.Redirect("ViewCompany.aspx");
+                    Exists = true;
                 }
-                else
-                {
+            }
+            if (Exists)
+            {
+                SqlDataSourceCompany.Update();
+                msg.Text = "Profile Updated";
+                msg.CssClass = "text-success";
+                // Response.Redirect("ViewCompany.aspx");
+            }
+            else
+            {
 
-                    msg.Text = "incorrect password";
-                    msg.CssClass = "text-danger";
-                }
+                msg.Text = "incorrect password";
+                msg.CssClass = "text-danger";
+            }
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }
@@ -67,24 +76,33 @@ public partial class EditCompany : System.Web.UI.Page
         //Response.Redirect("ViewCompany.aspx");
     }
 
-        protected void Button2_Click1(object sender, EventArgs e)
+    protected void Button2_Click1(object sender, EventArgs e)
     {
         DataView dv = SqlDataSourceCompany.Select(DataSourceSelectArguments.Empty) as DataView;
+
+        bool Exists = false;
 
         if (dv != null)
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
-                if (password.Text == dv.Table.Rows[i]["password"].ToString())
+            {
+                if (Session["cid"].ToString() == dv.Table.Rows[i]["Company_Id"].ToString() &&
+                    password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
-                    SqlDataSourceCompany.Delete();
-                    Response.Redirect("ViewCompany.aspx");
+                    Exists = true;
+                    break;
                 }
-                else
-                {
-
-                    msg.Text = "incorrect password";
-                    msg.CssClass = "text-danger";
-                }
+            }
+            if (Exists)
+            {
+                SqlDataSourceCompany.Delete();
+                Response.Redirect("Company.aspx");
+            }
+            else
+            {
+                msg.Text = "incorrect password";
+                msg.CssClass = "text-danger";
+            }
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }

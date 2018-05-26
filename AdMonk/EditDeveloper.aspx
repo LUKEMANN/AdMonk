@@ -62,7 +62,7 @@
         <div class="form-group">
             <label class="control-label col-sm-4">Contact</label>
             <div class="col-sm-6">
-                <asp:TextBox ID="mobile" runat="server" CssClass="form-control" OnTextChanged="mobile_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="mobile" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="mobile" CssClass="red" Display="Dynamic" ErrorMessage="*Field mandatory "></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="mobile" CssClass="red" Display="Dynamic" ErrorMessage="* invalid contact" ValidationExpression="\d{10}"></asp:RegularExpressionValidator>
             </div>
@@ -83,7 +83,7 @@
 
                 <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" OnClick="Button1_Click" Text="Update" />
                 <asp:Button ID="Button2" runat="server" CssClass="btn btn-danger" OnClick="Button2_Click" Text="Delete" />
-                <asp:SqlDataSource ID="SqlDataSourceDeveloper" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Developer] WHERE [Developer_Id] = @Developer_Id" InsertCommand="INSERT INTO [Developer] ([Name], [Phone], [Email], [Password], [Gender], [Fullname]) VALUES (@Name, @Phone, @Email, @Password, @Gender, @Fullname)" SelectCommand="SELECT * FROM [Developer]" UpdateCommand="UPDATE [Developer] SET [Name] = @Name, [Phone] = @Phone, [Email] = @Email, [Password] = @Password, [Gender] = @Gender, [Fullname] = @Fullname WHERE [Developer_Id] = @Developer_Id">
+                <asp:SqlDataSource ID="SqlDataSourceDeveloper" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Developer] WHERE [Developer_Id] = @Developer_Id" InsertCommand="INSERT INTO [Developer] ([Name], [Phone], [Email], [Password], [Gender], [Fullname]) VALUES (@Name, @Phone, @Email, @Password, @Gender, @Fullname)" SelectCommand="SELECT * FROM [Developer]" UpdateCommand="UPDATE Developer SET Name = @Name, Phone = @Phone, Email = @Email, Password = @Password, Gender = @Gender, Fullname = @Fullname, Photo = @Photo WHERE (Developer_Id = @Developer_Id)">
                     <DeleteParameters>
                         <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
                     </DeleteParameters>
@@ -103,6 +103,7 @@
                         <asp:ControlParameter ControlID="RadioButtonList1" Name="Gender" PropertyName="SelectedValue" Type="String" />
                         <asp:ControlParameter ControlID="fullname" Name="Fullname" PropertyName="Text" Type="String" />
                         <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
+                        <asp:ControlParameter ControlID="HiddenFieldPhoto" Name="Photo" PropertyName="Value" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
 

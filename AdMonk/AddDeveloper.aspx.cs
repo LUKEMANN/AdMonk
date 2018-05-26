@@ -47,7 +47,7 @@ public partial class AddDeveloper : System.Web.UI.Page
 
                     if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
                     {
-                        HiddenFieldPhoto.Value = "/photos/" + FileName;
+                        HiddenFieldPhoto.Value = "/user_images/" + FileName;                 //photos
                         Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
                         SqlDataSourceDeveloper.Insert();
                         msg.Text = "Account created successfully!";

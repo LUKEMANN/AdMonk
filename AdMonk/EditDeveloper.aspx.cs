@@ -43,11 +43,13 @@ public partial class EditDeveloper : System.Web.UI.Page
     {
         DataView dv = SqlDataSourceDeveloper.Select(DataSourceSelectArguments.Empty) as DataView;
 
+        bool Exists = false;
         if (dv != null)
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
                 if (password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
+                    Exists = true;
                     if (Photo.HasFile)
                     {
                         string FileName = Photo.FileName.ToLower();
@@ -56,7 +58,7 @@ public partial class EditDeveloper : System.Web.UI.Page
 
                         if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
                         {
-                            HiddenFieldPhoto.Value = "/photos/" + FileName;
+                            HiddenFieldPhoto.Value = "/user_images/" + FileName;     //photos
                             Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
                             SqlDataSourceDeveloper.Update();
                             msg.Text = "Profile Updated";
@@ -92,29 +94,31 @@ public partial class EditDeveloper : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
         DataView dv = SqlDataSourceDeveloper.Select(DataSourceSelectArguments.Empty) as DataView;
-
+        bool Exists = false;
         if (dv != null)
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
                 if (password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
-                    SqlDataSourceDeveloper.Delete();
-                    msg.Text = "done";
-                    Response.Redirect("ViewDeveloper.aspx");
+                    Exists = true;
+                    break;
                 }
-                else
-                {
+               
+            if (Exists)
+            {
+                SqlDataSourceDeveloper.Delete();
+                Response.Redirect("AddDeveloper.aspx");
+            }
+            else
+            {
 
-                    msg.Text = "incorrect password";
-                    msg.CssClass = "text-danger";
-                }
+                msg.Text = "incorrect password";
+                msg.CssClass = "text-danger";
+            }
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }
     }
 
-    protected void mobile_TextChanged(object sender, EventArgs e)
-    {
 
-    }
 }
