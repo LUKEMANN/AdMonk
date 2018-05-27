@@ -111,6 +111,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             </ul>
                             <!-- //nav-second-level -->
                         </li>
+                          <li>
+                            <a href="ViewTest.aspx">View Testimonials</a>
+                        </li>
                         <li>
                             <a href="ChangePassAdmin.aspx">Change Password</a>
                         </li>

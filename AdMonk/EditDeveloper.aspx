@@ -85,7 +85,7 @@
                 <asp:Button ID="Button2" runat="server" CssClass="btn btn-danger" OnClick="Button2_Click" Text="Delete" />
                 <asp:SqlDataSource ID="SqlDataSourceDeveloper" runat="server" ConnectionString="<%$ ConnectionStrings:connect %>" DeleteCommand="DELETE FROM [Developer] WHERE [Developer_Id] = @Developer_Id" InsertCommand="INSERT INTO [Developer] ([Name], [Phone], [Email], [Password], [Gender], [Fullname]) VALUES (@Name, @Phone, @Email, @Password, @Gender, @Fullname)" SelectCommand="SELECT * FROM [Developer]" UpdateCommand="UPDATE Developer SET Name = @Name, Phone = @Phone, Email = @Email, Password = @Password, Gender = @Gender, Fullname = @Fullname, Photo = @Photo WHERE (Developer_Id = @Developer_Id)">
                     <DeleteParameters>
-                        <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
+                        <asp:SessionParameter Name="Developer_Id" SessionField="did" Type="Int32" />
                     </DeleteParameters>
                     <InsertParameters>
                         <asp:Parameter Name="Name" Type="String" />
@@ -102,7 +102,7 @@
                         <asp:ControlParameter ControlID="password" Name="Password" PropertyName="Text" Type="String" />
                         <asp:ControlParameter ControlID="RadioButtonList1" Name="Gender" PropertyName="SelectedValue" Type="String" />
                         <asp:ControlParameter ControlID="fullname" Name="Fullname" PropertyName="Text" Type="String" />
-                        <asp:QueryStringParameter Name="Developer_Id" QueryStringField="id" Type="Int32" />
+                        <asp:SessionParameter Name="Developer_Id" SessionField="did" Type="Int32" />
                         <asp:ControlParameter ControlID="HiddenFieldPhoto" Name="Photo" PropertyName="Value" />
                     </UpdateParameters>
                 </asp:SqlDataSource>

@@ -31,13 +31,17 @@
             <div class="col-sm-12">
     <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSourceHits" CssClass="auto-style1" Width="950px" style="margin-top: 24px">
         <Series>
-            <asp:Series Name="Series1" XValueMember="Website" YValueMembers="Hits">
+            <asp:Series Name="Number of Hits" XValueMember="Website" YValueMembers="Hits" Legend="Legend1">
             </asp:Series>
         </Series>
         <ChartAreas>
             <asp:ChartArea Name="ChartArea1">
             </asp:ChartArea>
         </ChartAreas>
+        <Legends>
+                        <asp:Legend Name="Legend1">
+                        </asp:Legend>
+                    </Legends>
     </asp:Chart>
                 </div>
             </div>

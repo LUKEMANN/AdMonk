@@ -10,6 +10,14 @@ public partial class EditAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["type"] != null)
+        {
+            if (Session["type"].ToString() != "Admin")
+            {
+                Response.Redirect("unauth.aspx");
+            }
+        }
+
         if (Request.QueryString["id"] == null)
         {
             Response.Redirect("ViewAdmin.aspx");

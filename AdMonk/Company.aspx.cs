@@ -20,6 +20,7 @@ public partial class Company : System.Web.UI.Page
         if (dv != null)
         {
             bool exists = false;
+            bool existsc = false;      //for contact
             for (int i = 0; i < dv.Table.Rows.Count; i++)
             {
                 if (emailid.Text.ToLower() == dv.Table.Rows[i]["Email"].ToString().ToLower()||company_name.Text.ToLower()== dv.Table.Rows[i]["Name"].ToString().ToLower())
@@ -29,9 +30,25 @@ public partial class Company : System.Web.UI.Page
                     break;
                 }
             }
+            //-- contact validation--
+
+            for (int i = 0; i < dv.Table.Rows.Count; i++)
+            {
+                if (mobile.Text == dv.Table.Rows[i]["Contact"].ToString())
+                {
+
+                    existsc = true;
+                    break;
+                }
+            }
             if (exists)
             {
-                msg.Text = "Account already exists with Username or E-mail ID";
+                msg.Text = "Account already exists with Company Name or E-mail ID";
+                msg.CssClass = "text-danger";
+            }
+            else if(existsc)         //for contact
+            {
+                msg.Text = "Account already exists with contact";
                 msg.CssClass = "text-danger";
             }
             else

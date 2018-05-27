@@ -10,7 +10,13 @@ public partial class AddAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["type"] != null)
+        {
+            if (Session["type"].ToString() != "Admin")
+            {
+                Response.Redirect("unauth.aspx");
+            }
+        }
     }
 
     protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)

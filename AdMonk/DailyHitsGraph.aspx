@@ -33,7 +33,7 @@
             <div class="col-sm-12">
                 <asp:chart id="Chart1" runat="server" datasourceid="SqlDataSourceDailyHits" Width="950px">
     <series>
-        <asp:Series Name="Series1" XValueMember="Date_Of_Hit" YValueMembers="Hits" Legend="Legend1">
+        <asp:Series Name="Number of Hits" XValueMember="Date_Of_Hit" YValueMembers="Hits" Legend="Legend1">
         </asp:Series>
     </series>
     <chartareas>

@@ -45,7 +45,7 @@ public partial class EditCompany : System.Web.UI.Page
         DataView dv = SqlDataSourceCompany.Select(DataSourceSelectArguments.Empty) as DataView;
 
         bool Exists = false;
-
+        bool existsc = false;
         if (dv != null)
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
@@ -56,7 +56,22 @@ public partial class EditCompany : System.Web.UI.Page
                     Exists = true;
                 }
             }
-            if (Exists)
+
+            for (int i = 0; i < dv.Table.Rows.Count; i++)
+            {
+                if (mobile.Text == dv.Table.Rows[i]["Contact"].ToString())
+                {
+
+                    existsc = true;
+                    break;
+                }
+            }
+            if (existsc)
+            {
+                msg.Text = "Account already exists with contact";
+                msg.CssClass = "text-danger";
+            }
+            else if (Exists)
             {
                 SqlDataSourceCompany.Update();
                 msg.Text = "Profile Updated";
@@ -81,6 +96,7 @@ public partial class EditCompany : System.Web.UI.Page
         DataView dv = SqlDataSourceCompany.Select(DataSourceSelectArguments.Empty) as DataView;
 
         bool Exists = false;
+        
 
         if (dv != null)
         {

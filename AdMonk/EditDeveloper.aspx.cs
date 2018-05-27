@@ -47,46 +47,51 @@ public partial class EditDeveloper : System.Web.UI.Page
         if (dv != null)
         {
             for (int i = 0; i < dv.Table.Rows.Count; i++)
-                if (password.Text == dv.Table.Rows[i]["Password"].ToString())
+                if (Session["did"].ToString() == dv.Table.Rows[i]["Developer_Id"].ToString() &&
+                    password.Text == dv.Table.Rows[i]["Password"].ToString())
                 {
                     Exists = true;
-                    if (Photo.HasFile)
-                    {
-                        string FileName = Photo.FileName.ToLower();
+                    break;
+                }
+        }
 
-                        string Extension = FileName.Substring(FileName.LastIndexOf('.'));
+        if (Exists)
+        {
+            if (Photo.HasFile)
+            {
+                string FileName = Photo.FileName.ToLower();
 
-                        if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
-                        {
-                            HiddenFieldPhoto.Value = "/user_images/" + FileName;     //photos
-                            Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
-                            SqlDataSourceDeveloper.Update();
-                            msg.Text = "Profile Updated";
-                            msg.CssClass = "text-success";
-                        }
-                        else
-                        {
-                            msg.Text = "Select an image file.";
-                            msg.CssClass = "text-danger";
-                        }
-                    }
-                    else
-                    {
-                        SqlDataSourceDeveloper.Update();
-                        msg.Text = "Profile Updated";
-                        msg.CssClass = "text-success";
-                    }
-                    //Response.Redirect("ViewDeveloper.aspx");
+                string Extension = FileName.Substring(FileName.LastIndexOf('.'));
+
+                if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
+                {
+                    HiddenFieldPhoto.Value = "/user_images/" + FileName;     //photos
+                    Photo.SaveAs(Server.MapPath(HiddenFieldPhoto.Value));
+                    SqlDataSourceDeveloper.Update();
+                    msg.Text = "Profile Updated";
+                    msg.CssClass = "text-success";
                 }
                 else
                 {
-
-                    msg.Text = "incorrect password";
+                    msg.Text = "Select an image file.";
                     msg.CssClass = "text-danger";
                 }
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
-
+            }
+            else
+            {
+                SqlDataSourceDeveloper.Update();
+                msg.Text = "Profile Updated";
+                msg.CssClass = "text-success";
+            }
+            //Response.Redirect("ViewDeveloper.aspx");
         }
+        else
+        {
+
+            msg.Text = "incorrect password";
+            msg.CssClass = "text-danger";
+        }
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
         //SqlDataSourceDeveloper.Update();
         //Response.Redirect("ViewDeveloper.aspx");
     }
@@ -103,21 +108,23 @@ public partial class EditDeveloper : System.Web.UI.Page
                     Exists = true;
                     break;
                 }
-               
-            if (Exists)
-            {
-                SqlDataSourceDeveloper.Delete();
-                Response.Redirect("AddDeveloper.aspx");
-            }
-            else
-            {
 
-                msg.Text = "incorrect password";
-                msg.CssClass = "text-danger";
-            }
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
 
         }
+
+        if (Exists)
+        {
+            SqlDataSourceDeveloper.Delete();
+            Response.Redirect("AddDeveloper.aspx");
+        }
+        else
+        {
+
+            msg.Text = "incorrect password";
+            msg.CssClass = "text-danger";
+        }
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "", "$('#myModal').modal('hide');$('body').removeClass('modal-open');$('.modal-backdrop').remove();$('#myModal').modal('show');", true);
+
     }
 
 
